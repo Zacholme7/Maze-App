@@ -1,0 +1,12 @@
+.grid{
+    position: absolute;
+    margin-top: 100px;
+    left: 40%;
+    height: 400px;
+    width: 400px;   
+    
+}
+
+.row{
+    height: 20px;
+}

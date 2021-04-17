@@ -1,0 +1,27 @@
+.node{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: black;
+}
+
+.visited{
+    background-color: white;
+}
+.path {
+    background-color: rgb(34, 147, 247);
+}
+
+.topwall{
+    border-top: 1px solid black;
+}
+.bottomwall{
+    border-bottom: 1px solid black;
+}
+.rightwall{
+    border-right: 1px solid black;
+}
+.leftwall{
+    border-left: 1px solid black;
+}
