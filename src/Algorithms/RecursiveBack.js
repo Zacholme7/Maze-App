@@ -1,5 +1,4 @@
 /* Preforms the recursive backtracking maze generation algorithm */
-const lodashClonedeep = require("lodash.clonedeep");
 
 // returns a valid neighbor of the passed cell if there is one
 function getNeighbors(grid, cell){
@@ -19,20 +18,17 @@ function getNeighbors(grid, cell){
         }
 
     }
-
     return validNeighbors[Math.floor(Math.random() * validNeighbors.length)];
-    
 }
 
 // helper for the getNeighbor function, validates the row, col position
 function validate(grid, rowIdx, colIdx){
-    if(rowIdx < 0 | colIdx < 0 | rowIdx > 19 | colIdx > 19){
+    if(rowIdx < 0 | colIdx < 0 | rowIdx > 24 | colIdx > 59){
         return -1;
     } else{
         return grid[rowIdx][colIdx];
     }
 }
-
 
 // removes the wall between the 2 cells passed as arguments, will always be valid neighbors
 function removeWall(cell1, cell2){
@@ -54,6 +50,19 @@ function removeWall(cell1, cell2){
     }
 }
 
+// deep copy of existing grid, increases runtime significantly
+function newGrid(grid){
+    const newGrid = [];
+    for(let row = 0; row < 25; row++){
+        const currRow = [];
+        for(let col = 0; col < 60; col++){
+            const newNode = {...grid[row][col]}
+            currRow.push(newNode);
+        }
+        newGrid.push(currRow);
+    }
+    return newGrid;
+}
 
 // preforms the backtracking algorithm
 export function recursiveBack(grid, starting){
@@ -63,7 +72,8 @@ export function recursiveBack(grid, starting){
     curr.visited = true;
     curr.path = true;
     stack.push(curr);
-    gridArr.push(lodashClonedeep(grid));
+
+    gridArr.push(newGrid(grid));
     while(stack.length > 0){
         let next = getNeighbors(grid, curr);
         if(next){
@@ -72,14 +82,13 @@ export function recursiveBack(grid, starting){
             next.path = true;
             removeWall(curr, next);
             curr = next;
-            gridArr.push(lodashClonedeep(grid));
         } else {
             curr = stack.pop();
             curr.path = false;
-            gridArr.push(lodashClonedeep(grid));
-            
         }
+        gridArr.push(newGrid(grid));
     }
     return gridArr;
 }
+
 

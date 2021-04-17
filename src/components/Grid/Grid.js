@@ -19,11 +19,13 @@ class Grid extends React.Component {
     visualizeAnimation(){
         const {grid} = this.state
         const maze = recursiveBack(grid, grid[0][0]);
+        
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 this.setState({grid: maze[i]});
-              }, 30 *i );
+              }, 20 *i );
         }
+        
     };
 
     resetGrid(){
@@ -35,12 +37,6 @@ class Grid extends React.Component {
     render(){
         return(
             <>
-            <button onClick={() => this.visualizeAnimation()}>
-            Run
-            </button>
-            <button onClick={() => this.resetGrid()}>
-            Reset
-            </button>
             <div className="grid">
                 {this.state.grid.map((row, rowIdx) => {
                     return(
@@ -75,9 +71,9 @@ class Grid extends React.Component {
 
 const getInitialGrid = () =>{
     const grid = [];
-    for(let row = 0; row < 20; row++){
+    for(let row = 0; row < 25; row++){
         const currRow = [];
-        for(let col = 0; col < 20; col++){
+        for(let col = 0; col < 60; col++){
             currRow.push(createNode(col, row));
         }
         grid.push(currRow);

@@ -1,9 +1,9 @@
 .node{
     box-sizing: border-box;
-    width: 20px;
-    height: 20px;
+    width: calc(100% / 60);
+    height: calc(85vh / 25);
     display: inline-block;
-    background-color: black;
+    background-color: white;
 }
 
 .visited{
