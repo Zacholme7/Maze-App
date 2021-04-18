@@ -4,6 +4,8 @@ import Node from '../Node/Node'
 import {recursiveBack} from '../../Algorithms/RecursiveBack'
 import './Grid.css'
 
+export const ROW = 25;
+export const COL = 60;
 
 
 class Grid extends React.Component {
@@ -23,7 +25,7 @@ class Grid extends React.Component {
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 this.setState({grid: maze[i]});
-              }, 20 *i );
+              }, 20*i );
         }
         
     };
@@ -37,6 +39,9 @@ class Grid extends React.Component {
     render(){
         return(
             <>
+            <button onClick={() => this.visualizeAnimation()}>
+          Visualize Dijkstra's Algorithm
+        </button>
             <div className="grid">
                 {this.state.grid.map((row, rowIdx) => {
                     return(
@@ -71,9 +76,9 @@ class Grid extends React.Component {
 
 const getInitialGrid = () =>{
     const grid = [];
-    for(let row = 0; row < 25; row++){
+    for(let row = 0; row < ROW; row++){
         const currRow = [];
-        for(let col = 0; col < 60; col++){
+        for(let col = 0; col < COL; col++){
             currRow.push(createNode(col, row));
         }
         grid.push(currRow);

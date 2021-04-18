@@ -6,22 +6,27 @@
     background-color: white;
 }
 
+
+
 .visited{
     background-color: white;
 }
 .path {
     background-color: rgb(34, 147, 247);
 }
+.current{
+    background-color: black;
+}
 
 .topwall{
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(175, 216, 248);
 }
 .bottomwall{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(175, 216, 248);
 }
 .rightwall{
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(175, 216, 248);
 }
 .leftwall{
-    border-left: 1px solid black;
+    border-left: 1px solid rgb(175, 216, 248);
 }

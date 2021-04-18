@@ -1,3 +1,5 @@
+import {ROW, COL} from '../components/Grid/Grid'
+
 /* Preforms the recursive backtracking maze generation algorithm */
 
 // returns a valid neighbor of the passed cell if there is one
@@ -23,7 +25,7 @@ function getNeighbors(grid, cell){
 
 // helper for the getNeighbor function, validates the row, col position
 function validate(grid, rowIdx, colIdx){
-    if(rowIdx < 0 | colIdx < 0 | rowIdx > 24 | colIdx > 59){
+    if(rowIdx < 0 | colIdx < 0 | rowIdx > ROW -1 | colIdx > COL-1){
         return -1;
     } else{
         return grid[rowIdx][colIdx];
@@ -53,9 +55,9 @@ function removeWall(cell1, cell2){
 // deep copy of existing grid, increases runtime significantly
 function newGrid(grid){
     const newGrid = [];
-    for(let row = 0; row < 25; row++){
+    for(let row = 0; row < ROW; row++){
         const currRow = [];
-        for(let col = 0; col < 60; col++){
+        for(let col = 0; col < COL; col++){
             const newNode = {...grid[row][col]}
             currRow.push(newNode);
         }
@@ -66,29 +68,39 @@ function newGrid(grid){
 
 // preforms the backtracking algorithm
 export function recursiveBack(grid, starting){
+    
     let stack = [];
     let gridArr = [];
     let curr = starting;
     curr.visited = true;
     curr.path = true;
     stack.push(curr);
-
+    curr.current = true;
     gridArr.push(newGrid(grid));
     while(stack.length > 0){
-        let next = getNeighbors(grid, curr);
+        const next = getNeighbors(grid, curr);
         if(next){
             next.visited = true;
             stack.push(next);
             next.path = true;
             removeWall(curr, next);
+            curr.current = false
             curr = next;
+            curr.current = true
+            
         } else {
+            curr.current = false
             curr = stack.pop();
             curr.path = false;
+            curr.current = true;
+            if(stack.length == 0){
+                curr.current = false;
+            }
         }
         gridArr.push(newGrid(grid));
     }
     return gridArr;
+    
 }
 
 

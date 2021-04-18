@@ -10,10 +10,11 @@ class Node extends React.Component{
         const leftwall = left ? "leftwall": " ";
         const pathVar = path ? "path": " ";
         const visitedNode = visited ? "visited": " ";
+        const currentNode = current ? "current": " ";
         return(
             <div
             id={`node-${row}-${col}`}
-            className={`node ${topwall} ${bottomwall} ${rightwall} ${leftwall} ${pathVar} ${visitedNode}`}
+            className={`node ${topwall} ${bottomwall}  ${rightwall} ${leftwall} ${pathVar} ${visitedNode} ${currentNode}`}
             ></div>
         );
     }
