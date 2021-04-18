@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Node from '../Node/Node'
 import {recursiveBack} from '../../Algorithms/RecursiveBack'
+import {useSelector, useDispatch} from 'react-redux';
 
 import './Grid.css'
 
@@ -8,42 +9,36 @@ export const ROW = 25;
 export const COL = 60;
 
 
-class Grid extends React.Component {
-    state = {grid: []};
-
+const Grid = () =>  {
     
-    componentDidMount(){
-        const grid = getInitialGrid();
-        this.setState({grid: grid});
-        
-    };
+    const [grid, setGrid] = useState(getInitialGrid());
+    const algo = useSelector(state => state.counter)
+    
 
-    generate(){
-        const {grid} = this.state
-        const maze = recursiveBack(grid, grid[0][0]);
+    const generate = () => {
+        const maze = algo(grid, grid[0][0]);
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
-                this.setState({grid: maze[i]});
+                setGrid(maze[i])
               }, 20*i );
         }
         
     };
 
-    resetGrid(){
-        const grid = getInitialGrid();
-        this.setState({grid: grid});
-    }
+    
 
 
-    render(){
         return(
             <>
-            <button onClick={() => this.generate()}>
-          {this.state.name}
-        </button>
+           <div className="top">
+           <div className="btn" onClick={() => generate()} >
+                       Generate
+                </div>
+           </div>
+        
             <div className="grid">
-                {this.state.grid.map((row, rowIdx) => {
+                {grid.map((row, rowIdx) => {
                     return(
                         <div key={rowIdx} className="row">
                             {row.map((node, nodeIdx) => {
@@ -70,7 +65,6 @@ class Grid extends React.Component {
             </div>
             </>
         );
-    }
 }
 
 
