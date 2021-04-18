@@ -2,8 +2,10 @@ import React from 'react';
 import './Header.css'
 
 
-class Header extends React.Component{
-    render(){
+const Header = () => {
+
+  
+
         return(
             
             <div className="container">
@@ -17,7 +19,6 @@ class Header extends React.Component{
                 </div>
             </div>
         )
-    }
 }
 
 export default Header;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Node from '../Node/Node'
-
 import {recursiveBack} from '../../Algorithms/RecursiveBack'
+
 import './Grid.css'
 
 export const ROW = 25;
@@ -18,7 +18,7 @@ class Grid extends React.Component {
         
     };
 
-    visualizeAnimation(){
+    generate(){
         const {grid} = this.state
         const maze = recursiveBack(grid, grid[0][0]);
         
@@ -39,8 +39,8 @@ class Grid extends React.Component {
     render(){
         return(
             <>
-            <button onClick={() => this.visualizeAnimation()}>
-          Visualize Dijkstra's Algorithm
+            <button onClick={() => this.generate()}>
+          {this.state.name}
         </button>
             <div className="grid">
                 {this.state.grid.map((row, rowIdx) => {
