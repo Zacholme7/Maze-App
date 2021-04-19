@@ -2,6 +2,9 @@ import React from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
 import {recursive} from '../../actions/recursive'
+import { prim } from '../../actions/prim';
+import { binary } from '../../actions/binary'
+import { hunt } from '../../actions/hunt';
 
 
 
@@ -16,10 +19,32 @@ const Header = () => {
                     <button 
                     onClick={() => dispatch(recursive())}
                     >
-                        Recursive Descent
+                        Recursive
+                    </button>
+                    <button 
+                    onClick={() => dispatch(prim())}
+                    >
+                        prims
                     </button>
                     <div className="title">
                         Maze Generator
+                    </div>
+                    <button 
+                    onClick={() => dispatch(binary())}
+                    >
+                        binary
+                    </button>
+                    <button 
+                    onClick={() => dispatch(hunt())}
+                    >
+                        hunt
+                    </button>
+                    
+                    
+                </div>
+                <div className="bottom-header">
+                    <div className="title">
+                        PathFinder
                     </div>
                 </div>
             </div>

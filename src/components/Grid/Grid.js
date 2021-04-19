@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import Node from '../Node/Node'
 import {recursiveBack} from '../../Algorithms/RecursiveBack'
+import {randomizedPrims} from '../../Algorithms/RandomizedPrim'
+import {binaryTree} from '../../Algorithms/BinaryTree'
 import {useSelector, useDispatch} from 'react-redux';
 
+
 import './Grid.css'
+import { huntAndKill } from '../../Algorithms/huntAndKill';
 
 export const ROW = 25;
 export const COL = 60;
@@ -16,7 +20,7 @@ const Grid = () =>  {
     
 
     const generate = () => {
-        const maze = algo(grid, grid[0][0]);
+        const maze = algo(grid, grid[10][30]);
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
@@ -24,6 +28,11 @@ const Grid = () =>  {
               }, 20*i );
         }
         
+        
+    };
+
+    const resetGrid = () => {
+        setGrid(getInitialGrid())
     };
 
     
@@ -35,7 +44,12 @@ const Grid = () =>  {
            <div className="btn" onClick={() => generate()} >
                        Generate
                 </div>
+                <div className="btn" onClick={() => resetGrid()} >
+                       Reset
+                </div>
            </div>
+
+           
         
             <div className="grid">
                 {grid.map((row, rowIdx) => {
