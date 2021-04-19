@@ -10,9 +10,42 @@
 .visited{
     background-color: white;
 }
+
+
+.path {
+    animation-name: visitedAnimation;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+  
+  @keyframes visitedAnimation {
+    0% {
+      transform: scale(0.5);
+      background-color: rgb(106, 181, 247);;
+    }
+  
+    50% {
+      background-color: rgb(62, 162, 249);;
+    }
+  
+
+  
+    100% {
+      transform: scale(1);
+      background-color: rgb(34, 147, 247);;
+    }
+  }
+
+  /*
 .path {
     background-color: rgb(34, 147, 247);
 }
+*/
 .current{
     background-color: black;
 }
