@@ -10,9 +10,19 @@ function carveConditioner(currCell){
 }
 
 function sideWinder(grid, starting){
+    let currCell = starting
     for(let i = 0; i < grid.length; i++){
         for(let j = 0; j < grid[0].length; j++){
             
+            let cond = carveConditioner(grid[i][j])
+            if(cond == 1){
+                if(col < 59 - 1){
+                    removeWall(grid[i][j], grid[i][j+1])
+                }
+            } else{
+
+            }
         }
     }
 }
+

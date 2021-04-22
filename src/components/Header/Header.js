@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
 import {recursive} from '../../actions/recursive'
@@ -10,34 +10,35 @@ import { hunt } from '../../actions/hunt';
 
 const Header = () => {
     const dispatch = useDispatch();
+    const [active, setActive] =  useState(0);
   
 
         return(
             
             <div className="container">
                 <div className="top-header">
-                    <button 
-                    onClick={() => dispatch(recursive())}
+                    <button className={`btn-top ${active == 0 ? `current`: ``}`}
+                    onClick={() => {dispatch(recursive()); setActive(0)}}
                     >
                         Recursive
                     </button>
-                    <button 
-                    onClick={() => dispatch(prim())}
+                    <button className={`btn-top ${active == 1 ? `current`: ``}`}
+                    onClick={() => {dispatch(prim()); setActive(1)}}
                     >
-                        prims
+                        Prims
                     </button>
                     <div className="title">
                         Maze Generator
                     </div>
-                    <button 
-                    onClick={() => dispatch(binary())}
+                    <button className={`btn-top ${active == 2 ? `current`: ``}`}
+                    onClick={() => {dispatch(binary()); setActive(2)}}
                     >
-                        binary
+                        Binary
                     </button>
-                    <button 
-                    onClick={() => dispatch(hunt())}
+                    <button className={`btn-top ${active == 3 ? `current`: ``}`}
+                    onClick={() => {dispatch(hunt()); setActive(3)}}
                     >
-                        hunt
+                        Hunt
                     </button>
                     
                     
