@@ -15,12 +15,13 @@
     height: 8vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     color: white;
 
 }
 
-.btn {
+.generate {
     color: white;
     font-size: 20px;
     text-align: center;
@@ -34,6 +35,59 @@
     transition: all .3s;
 }
 
+.control{
+    display: flex;
+    height: 50%;
+}
+
+.reset{
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+.btn-bottom{
+    background-color:#164d91;
+    height: 70%;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    margin-top: 1 0px;
+    opacity: 0
+}
+
+.animation{
+    animation-name: hidden;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hidden{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*
+.control{
+    background-color: red;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reset{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
 .btn:hover{
     background-color: #1f69c4;
     transform: scale(1.1);
@@ -42,5 +96,6 @@
 .btn:active{
     transform: translateY(1px);
 }
+*/
 
 

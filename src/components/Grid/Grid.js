@@ -16,19 +16,20 @@ export const COL = 60;
 const Grid = () =>  {
     
     const [grid, setGrid] = useState(getInitialGrid());
+    const [active, setActive] = useState(false);
     const algo = useSelector(state => state.counter)
     
 
     const generate = () => {
         const maze = algo(grid, grid[10][30]);
+        setActive(true)
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
               }, 20*i );
         }
-        
-        
+
     };
 
     const resetGrid = () => {
@@ -41,12 +42,22 @@ const Grid = () =>  {
         return(
             <>
            <div className="top">
-           <div className="btn" onClick={() => generate()} >
+           <div className={`generate ${active ? "active": ""}`} onClick={() => generate()} >
                        Generate
-                </div>
-                <div className="btn" onClick={() => resetGrid()} >
+            </div>
+            <div className="control">
+            <div className={`step-left btn-bottom  ${active ? `animation active-left`: ""}`}>
+                Step Back
+            </div>
+            <div className={`reset btn-bottom ${active ? "animation active-middle": ""}`} onClick={() => resetGrid()} >
                        Reset
-                </div>
+            </div>
+            <div className={`step-right btn-bottom ${active ? "animation active-right": ""}`}>
+                Step Forward
+            </div>
+            </div>
+
+
            </div>
 
            

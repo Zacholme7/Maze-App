@@ -156,9 +156,7 @@ export function randomizedPrims(grid, starting){
     return gridArr
 }
 
-const grid = getInitialGrid()
-const maze = randomizedPrims(grid, grid[3][3])
-console.log(maze)
+
 
 
 
