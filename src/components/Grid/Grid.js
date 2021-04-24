@@ -22,7 +22,6 @@ const Grid = () =>  {
 
     const generate = () => {
         const maze = algo(grid, grid[10][30]);
-        setActive(true)
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
@@ -45,20 +44,7 @@ const Grid = () =>  {
            <div className={`generate ${active ? "active": ""}`} onClick={() => generate()} >
                        Generate
             </div>
-            <div className="control">
-            <div className={`step-left btn-bottom  ${active ? `animation active-left`: ""}`}>
-                Step Back
             </div>
-            <div className={`reset btn-bottom ${active ? "animation active-middle": ""}`} onClick={() => resetGrid()} >
-                       Reset
-            </div>
-            <div className={`step-right btn-bottom ${active ? "animation active-right": ""}`}>
-                Step Forward
-            </div>
-            </div>
-
-
-           </div>
 
            
         

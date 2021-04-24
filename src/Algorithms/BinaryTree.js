@@ -1,3 +1,5 @@
+import {removeWall, newGrid} from './utility'
+
 function northWestNeightbor(cell){
     // north == 1, 
     // west = 2
@@ -13,38 +15,6 @@ function northWestNeightbor(cell){
         return 1
     } 
     return Math.floor(Math.random() * (2 - 1 + 1) + 1);
-}
-
-function removeWall(cell1, cell2){
-    let y = cell1.row - cell2.row;
-    let x = cell1.col - cell2.col;
-
-    if(x == 1){
-        cell1.left = false;
-        cell2.right = false;
-    } else if(x == -1){
-        cell1.right = false;
-        cell2.left = false;
-    } else if(y == 1){
-        cell1.top = false;
-        cell2.bottom = false;
-    } else if(y == -1){
-        cell1.bottom = false;
-        cell2.top = false;
-    }
-}
-
-function newGrid(grid){
-    const newGrid = [];
-    for(let row = 0; row < 25; row++){
-        const currRow = [];
-        for(let col = 0; col < 60; col++){
-            const newNode = {...grid[row][col]}
-            currRow.push(newNode);
-        }
-        newGrid.push(currRow);
-    }
-    return newGrid;
 }
 
 
@@ -71,32 +41,3 @@ export function binaryTree(grid, placeholder){
     grid[24][59].current = false;
     return gridArr
 }
-
-const getInitialGrid = () =>{
-    const grid = [];
-    for(let row = 0; row < 25; row++){
-        const currRow = [];
-        for(let col = 0; col < 60; col++){
-            currRow.push(createNode(col, row));
-        }
-        grid.push(currRow);
-    }
-    return grid;
-}
-
-const createNode = (col, row) => {
-    return {
-        col: col, 
-        row: row,
-        visited: false,
-        path: false,
-        current: false,
-        top: true,
-        bottom: true,
-        right: true,
-        left: true
-    }
-}
-
-const grid = getInitialGrid()
-const maze = binaryTree(grid)
