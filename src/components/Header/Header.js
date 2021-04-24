@@ -5,6 +5,7 @@ import {recursive} from '../../actions/recursive'
 import { prim } from '../../actions/prim';
 import { binary } from '../../actions/binary'
 import { hunt } from '../../actions/hunt';
+import { sidewinder } from '../../actions/sidewinder';
 
 
 
@@ -17,6 +18,11 @@ const Header = () => {
             
             <div className="container">
                 <div className="top-header">
+                <button className={`btn-top ${active == 0 ? `current`: ``}`}
+                    onClick={() => {dispatch(recursive()); setActive(0)}}
+                    >
+                        Recursive
+                    </button>
                     <button className={`btn-top ${active == 0 ? `current`: ``}`}
                     onClick={() => {dispatch(recursive()); setActive(0)}}
                     >
@@ -39,6 +45,11 @@ const Header = () => {
                     onClick={() => {dispatch(hunt()); setActive(3)}}
                     >
                         Hunt
+                    </button>
+                    <button className={`btn-top ${active == 4 ? `current`: ``}`}
+                    onClick={() => {dispatch(sidewinder()); setActive(4)}}
+                    >
+                        Sidewinder
                     </button>
                     
                     
