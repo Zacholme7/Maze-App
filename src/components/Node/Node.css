@@ -1,12 +1,13 @@
 .node{
     box-sizing: border-box;
-    width: calc(100% / 60);
-    height: calc(85vh / 25);
     display: inline-block;
     background-color: white;
 }
 
-
+/*
+ width: calc(100% / 60);
+    height: calc(85vh / 25);
+*/
 .visited{
     background-color: white;
 }

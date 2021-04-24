@@ -1,4 +1,3 @@
-import {ROW, COL} from '../components/Grid/Grid'
 import {getNeighbors, removeWall, newGrid} from './utility'
 
 /* Preforms the recursive backtracking maze generation algorithm */

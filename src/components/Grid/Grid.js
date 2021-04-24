@@ -1,16 +1,11 @@
 import React, {useState} from 'react';
 import Node from '../Node/Node'
-import {recursiveBack} from '../../Algorithms/RecursiveBack'
-import {randomizedPrims} from '../../Algorithms/RandomizedPrim'
-import {binaryTree} from '../../Algorithms/BinaryTree'
 import {useSelector, useDispatch} from 'react-redux';
-
-
 import './Grid.css'
-import { huntAndKill } from '../../Algorithms/huntAndKill';
 
-export const ROW = 25;
-export const COL = 60;
+export const ROW = 20;
+export const COL = 40;
+
 
 
 const Grid = () =>  {
@@ -21,7 +16,7 @@ const Grid = () =>  {
     
 
     const generate = () => {
-        const maze = algo(grid, grid[10][30]);
+        const maze = algo(grid, grid[ROW/2][COL/2]);
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
@@ -51,7 +46,7 @@ const Grid = () =>  {
             <div className="grid">
                 {grid.map((row, rowIdx) => {
                     return(
-                        <div key={rowIdx} className="row">
+                        <div key={rowIdx} className="row" style={{height: `calc(100% / ${ROW}`}}>
                             {row.map((node, nodeIdx) => {
                                 
                                 const {col, row, visited, path, current, top, bottom, right, left} = node;

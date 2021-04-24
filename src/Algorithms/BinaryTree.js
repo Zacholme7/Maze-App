@@ -1,3 +1,4 @@
+import {ROW, COL} from '../components/Grid/Grid'
 import {removeWall, newGrid} from './utility'
 
 function northWestNeightbor(cell){
@@ -38,6 +39,6 @@ export function binaryTree(grid, placeholder){
 
     }
 
-    grid[24][59].current = false;
+    grid[ROW-1][COL-1].current = false;
     return gridArr
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Node.css'
+import {ROW, COL} from '../Grid/Grid'
 
 class Node extends React.Component{
     render(){
@@ -15,6 +16,7 @@ class Node extends React.Component{
             <div
             id={`node-${row}-${col}`}
             className={`node ${topwall} ${bottomwall}  ${rightwall} ${leftwall} ${pathVar} ${visitedNode} ${currentNode}`}
+            style={{ width: `calc(100% / ${COL})`,height: `calc(85vh / ${ROW})`}}
             ></div>
         );
     }

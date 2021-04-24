@@ -1,3 +1,5 @@
+import {ROW, COL} from '../components/Grid/Grid'
+
 /* removes the wall between cell1 and cell 2 */
 export function removeWall(cell1, cell2){
     let y = cell1.row - cell2.row;
@@ -62,7 +64,7 @@ export function getVisited(grid, cell){
 
 /* helper validation function for getVisited and getUnvisited */
 export function validate(grid, rowIdx, colIdx){
-    if(rowIdx < 0 | colIdx < 0 | rowIdx > 24 | colIdx > 59){
+    if(rowIdx < 0 | colIdx < 0 | rowIdx > ROW - 1 | colIdx > COL - 1){
         return -1;
     } else{
         return grid[rowIdx][colIdx];
@@ -93,9 +95,9 @@ export function getNeighbors(grid, cell){
 /* makes a deep copy of the grid */
 export function newGrid(grid){
     const newGrid = [];
-    for(let row = 0; row < 25; row++){
+    for(let row = 0; row < ROW; row++){
         const currRow = [];
-        for(let col = 0; col < 60; col++){
+        for(let col = 0; col < COL; col++){
             const newNode = {...grid[row][col]}
             currRow.push(newNode);
         }
