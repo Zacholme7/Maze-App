@@ -21,33 +21,33 @@ const Header = () => {
                 <button className={`btn-top ${active == 0 ? `current`: ``}`}
                     onClick={() => {dispatch(recursive()); setActive(0)}}
                     >
-                        Recursive
+                        Eller's
                     </button>
-                    <button className={`btn-top ${active == 0 ? `current`: ``}`}
-                    onClick={() => {dispatch(recursive()); setActive(0)}}
+                    <button className={`btn-top ${active == 1 ? `current`: ``}`}
+                    onClick={() => {dispatch(recursive()); setActive(1)}}
                     >
                         Recursive
                     </button>
-                    <button className={`btn-top ${active == 1 ? `current`: ``}`}
-                    onClick={() => {dispatch(prim()); setActive(1)}}
+                    <button className={`btn-top ${active == 2 ? `current`: ``}`}
+                    onClick={() => {dispatch(prim()); setActive(2)}}
                     >
                         Prims
                     </button>
                     <div className="title">
                         Maze Generator
                     </div>
-                    <button className={`btn-top ${active == 2 ? `current`: ``}`}
-                    onClick={() => {dispatch(binary()); setActive(2)}}
+                    <button className={`btn-top ${active == 3 ? `current`: ``}`}
+                    onClick={() => {dispatch(binary()); setActive(3)}}
                     >
                         Binary
                     </button>
-                    <button className={`btn-top ${active == 3 ? `current`: ``}`}
-                    onClick={() => {dispatch(hunt()); setActive(3)}}
+                    <button className={`btn-top ${active == 4 ? `current`: ``}`}
+                    onClick={() => {dispatch(hunt()); setActive(4)}}
                     >
                         Hunt
                     </button>
-                    <button className={`btn-top ${active == 4 ? `current`: ``}`}
-                    onClick={() => {dispatch(sidewinder()); setActive(4)}}
+                    <button className={`btn-top ${active == 5 ? `current`: ``}`}
+                    onClick={() => {dispatch(sidewinder()); setActive(5)}}
                     >
                         Sidewinder
                     </button>

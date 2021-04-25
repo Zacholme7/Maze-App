@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 20;
-export const COL = 40;
+export const ROW = 25;
+export const COL = 55;
 
 
 
@@ -16,7 +16,7 @@ const Grid = () =>  {
     
 
     const generate = () => {
-        const maze = algo(grid, grid[ROW/2][COL/2]);
+        const maze = algo(grid, grid[Math.floor(ROW/2)][Math.floor(COL/2)]);
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {

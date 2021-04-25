@@ -29,12 +29,11 @@
 
 .btn-top{
     color: white;
-    background-color:#257be4;
+    background-color:#1e6ccb;
     outline: none;
     border-style: none;
     width: 6%;
     height: 70%;
-    border-radius: 10px;
     transition: all .3s;
 }
 
