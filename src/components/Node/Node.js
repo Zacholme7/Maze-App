@@ -4,20 +4,35 @@ import {ROW, COL} from '../Grid/Grid'
 
 class Node extends React.Component{
     render(){
-        const {col, row, visited,path, current, top, bottom, left, right } = this.props;
-        const topwall = top ? "topwall": " ";
-        const bottomwall = bottom ? "bottomwall": " ";
-        const rightwall = right ? "rightwall": " ";
-        const leftwall = left ? "leftwall": " ";
-        const pathVar = path ? "path": " ";
-        const visitedNode = visited ? "visited": " ";
+        const {col, row, visited,path, current, top, bottom, left, right, deadEnd,
+        visitedCurr, visitedPath } = this.props;
+        const bottomWall = bottom ? "bottom": "bottomFalse";
+        const rightWall = right ? "right": " rightFalse";
         const currentNode = current ? "current": " ";
+        const inPath = path ? "path": " ";
+
+        const topwall = top ? "topwall": " topwallFalse";
+        const leftwall = left ? "leftwall": " leftwallFalse";
+
+        const visitedNode = visited ? "visited": " ";
+        const isDeadEnd = deadEnd ? "deadend": " ";
+        const isCurrVisited = visitedCurr ? "visitedCurr": " ";
+        const isVisitedPath = visitedPath ? "visitedPath": " ";
         return(
             <div
+            
             id={`node-${row}-${col}`}
-            className={`node ${topwall} ${bottomwall}  ${rightwall} ${leftwall} ${pathVar} ${visitedNode} ${currentNode}`}
-            style={{ width: `calc(100% / ${COL})`,height: `calc(85vh / ${ROW})`}}
-            ></div>
+            className={`cell ${currentNode} ${inPath} ${rightWall} ${bottomWall}`}
+            style={{ width: `calc(100% / ${COL})`}}
+            /*
+            className={`cell ${topwall} ${bottomwall}   ${rightwall} ${leftwall} ${pathVar} ${visitedNode} ${currentNode} ${isDeadEnd}
+            ${isCurrVisited} ${isVisitedPath} `}
+            
+            */
+            >
+        
+
+            </div>
         );
     }
 }

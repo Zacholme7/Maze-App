@@ -4,24 +4,24 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
 export const ROW = 25;
-export const COL = 55;
+export const COL = 50;
 
 
 
 const Grid = () =>  {
     
     const [grid, setGrid] = useState(getInitialGrid());
-    const [active, setActive] = useState(false);
+    const [reset, setReset] = useState(0);
     const algo = useSelector(state => state.counter)
     
 
     const generate = () => {
         const maze = algo(grid, grid[Math.floor(ROW/2)][Math.floor(COL/2)]);
-        
+        console.log(maze.length)
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 20*i );
+              }, 30*i );
         }
 
     };
@@ -37,7 +37,7 @@ const Grid = () =>  {
             <React.Fragment>
                 
            <div className="top">
-           <div className={`generate ${active ? "active": ""}`} onClick={() => generate()} >
+           <div className={`generate`} onClick={() => generate()} >
                        Generate
             </div>
             </div>
@@ -47,10 +47,11 @@ const Grid = () =>  {
             <div className="grid">
                 {grid.map((row, rowIdx) => {
                     return(
-                        <div key={rowIdx} className="row" style={{height: `calc(100% / ${ROW}`}}>
+                        <div key={rowIdx} className="row" style={{height: `calc(100% / ${ROW}`, width: "100%", display: 'flex'}}>
                             {row.map((node, nodeIdx) => {
                                 
-                                const {col, row, visited, path, current, top, bottom, right, left} = node;
+                                const {col, row, visited, path, current, top, bottom, right, left, deadEnd,
+                                    visitedCurr, visitedPath} = node;
                                 return(
                                     <Node 
                                         key = {nodeIdx}
@@ -63,6 +64,9 @@ const Grid = () =>  {
                                         bottom = {bottom}
                                         right = {right}
                                         left = {left}
+                                        deadEnd = {deadEnd}
+                                        visitedCurr = {visitedCurr}
+                                        visitedPath = {visitedPath}
                                     ></Node>
                                 );
                             })}
@@ -97,7 +101,10 @@ const createNode = (col, row) => {
         top: true,
         bottom: true,
         right: true,
-        left: true
+        left: true,
+        deadEnd: false,
+        visitedCurr: false,
+        visitedPath: false
     }
 }
 

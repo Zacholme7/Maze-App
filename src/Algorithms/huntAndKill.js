@@ -3,19 +3,19 @@ import {getNeighbors, removeWall, newGrid} from './utility'
 /* preforms a random walk for the passed cell */
 function randomWalk(grid, gridArr, currCell){
     while(true){
-        currCell.path = true
+        currCell.current = true
         let neighbor = getNeighbors(grid, currCell)
         if(neighbor){
             removeWall(currCell, neighbor)
             neighbor.visited = true;
         } else {
             gridArr.push(newGrid(grid))
-            currCell.path = false
+            currCell.current = false
             return
         }
 
         gridArr.push(newGrid(grid))
-        currCell.path = false
+        currCell.current = false
         currCell = neighbor
 
     }

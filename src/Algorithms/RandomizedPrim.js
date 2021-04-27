@@ -7,7 +7,7 @@ export function randomizedPrims(grid, starting){
     let gridArr = []
     let borderArr = [...getUnvisited(grid, starting)] // get initial border arr
     for(let i = 0; i < borderArr.length; i++){
-        borderArr[i].path = true;
+        borderArr[i].current = true;
     }
      
     while(borderArr.length > 0){
@@ -23,14 +23,14 @@ export function randomizedPrims(grid, starting){
         removeWall(randomVisited, randomBorder)
 
         // market the border cell as visied and remove from border since its part of the maze now
-        randomBorder.path = false;
+        randomBorder.current = false;
         borderArr.splice(borderArr.indexOf(randomBorder), 1)
         randomBorder.visited = true;
 
         // add the border of the old border cell to the border array
         let borderAdded = getUnvisited(grid, randomBorder);
         for(let i = 0; i < borderAdded.length; i++){
-            borderAdded[i].path = true;
+            borderAdded[i].current = true;
         }
 
         borderArr = borderArr.concat(borderAdded)

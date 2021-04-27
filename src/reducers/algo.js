@@ -3,6 +3,7 @@ import {randomizedPrims} from '../Algorithms/RandomizedPrim';
 import { binaryTree } from '../Algorithms/BinaryTree';
 import { huntAndKill } from '../Algorithms/huntAndKill';
 import { sideWinder } from '../Algorithms/Sidewinder';
+import { deadend } from '../Pathfinders/Deadend';
 
 const algoReducer = (state = recursiveBack, action) => {
     switch(action.type){
@@ -16,6 +17,8 @@ const algoReducer = (state = recursiveBack, action) => {
             return huntAndKill;
         case 'Sidewinder':
             return sideWinder;
+        case 'DeadEnd':
+            return deadend;
         default: 
             return state;
     }

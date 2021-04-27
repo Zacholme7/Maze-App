@@ -6,6 +6,7 @@ import { prim } from '../../actions/prim';
 import { binary } from '../../actions/binary'
 import { hunt } from '../../actions/hunt';
 import { sidewinder } from '../../actions/sidewinder';
+import { deadend } from '../../actions/deadend';
 
 
 
@@ -19,7 +20,7 @@ const Header = () => {
             <div className="container">
                 <div className="top-header">
                 <button className={`btn-top ${active == 0 ? `current`: ``}`}
-                    onClick={() => {dispatch(recursive()); setActive(0)}}
+                    onClick={() => {dispatch(deadend()); setActive(0)}}
                     >
                         Eller's
                     </button>

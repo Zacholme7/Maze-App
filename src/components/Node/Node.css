@@ -1,17 +1,26 @@
-.node{
-    box-sizing: border-box;
-    display: inline-block;
-    background-color: white;
+.cell{
+  box-sizing: border-box;
 }
 
-/*
- width: calc(100% / 60);
-    height: calc(85vh / 25);
-*/
-.visited{
-    background-color: white;
+.bottom{
+  border-bottom: 5px solid black;
 }
 
+.right{
+  border-right: 5px solid black;
+}
+
+.bottomFalse{
+  border-bottom: None
+}
+
+.rightFalse{
+  border-right: None
+}
+
+.current {
+  background-color: rgb(34, 147, 247);
+}
 
 .path {
     animation-name: visitedAnimation;
@@ -34,32 +43,13 @@
       background-color: rgb(62, 162, 249);;
     }
   
-
-  
     100% {
       transform: scale(1);
       background-color: rgb(34, 147, 247);;
     }
   }
 
-  /*
-.path {
-    background-color: rgb(34, 147, 247);
-}
-*/
-.current{
-    background-color: black;
-}
 
-.topwall{
-    border-top: 1px solid rgb(175, 216, 248);
-}
-.bottomwall{
-    border-bottom: 1px solid rgb(175, 216, 248);
-}
-.rightwall{
-    border-right: 1px solid rgb(175, 216, 248);
-}
-.leftwall{
-    border-left: 1px solid rgb(175, 216, 248);
-}
+
+
+
