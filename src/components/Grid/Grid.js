@@ -34,7 +34,8 @@ const Grid = () =>  {
 
 
         return(
-            <>
+            <React.Fragment>
+                
            <div className="top">
            <div className={`generate ${active ? "active": ""}`} onClick={() => generate()} >
                        Generate
@@ -69,7 +70,7 @@ const Grid = () =>  {
                     );
                 })}
             </div>
-            </>
+            </React.Fragment>
         );
 }
 

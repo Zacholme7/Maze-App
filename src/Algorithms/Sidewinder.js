@@ -1,5 +1,4 @@
-import {removeWall, newGrid} from './utility'
-
+import {removeWall, newGrid} from './utility.js'
 /* Implements the sidewinder maze generation algorithm */
 
 function carveCondition(currCell){
@@ -19,18 +18,17 @@ export function sideWinder(grid, starting){
     for(let i = 0; i < grid.length; i++){
         let run = [] // init the run set to empty at the start of each row
         for(let j = 0; j < grid[0].length; j++){
+            
             grid[i][j].current = true;
             run.push(grid[i][j]) // push curr cell to the run set
 
+            
             let cond = carveCondition(grid[i][j])
-
-            if(cond == 1){
-                if( j != 59){
-                    removeWall(grid[i][j], grid[i][j+1])
-                }
-            } else if(cond == 0){
+            if(cond == 1 && j < grid[0].length - 1){
+                removeWall(grid[i][j], grid[i][j+1])
+            } else if( i > 0){
                 let random = run[Math.floor(Math.random() * run.length)]
-                removeWall(random, grid[i-1][j])
+                removeWall(random, grid[random.row - 1][random.col])
                 run = []
             }
             gridArr.push(newGrid(grid))
@@ -39,5 +37,3 @@ export function sideWinder(grid, starting){
     }
     return gridArr
 }
-
-

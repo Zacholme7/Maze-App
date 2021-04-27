@@ -1,4 +1,4 @@
-import {ROW, COL} from '../components/Grid/Grid'
+import {ROW, COL} from '../components/Grid/Grid.js'
 
 /* removes the wall between cell1 and cell 2 */
 export function removeWall(cell1, cell2){
