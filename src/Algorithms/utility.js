@@ -71,7 +71,7 @@ export function validate(grid, rowIdx, colIdx){
     }
 }
 
-/* gets the neighbors of the cell */
+/* returns one neighbor of the passed cell */
 export function getNeighbors(grid, cell){
     let row = cell.row;
     let col = cell.col;

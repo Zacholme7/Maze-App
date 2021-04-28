@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
 export const ROW = 25;
-export const COL = 50;
+export const COL = 60;
 
 
 
@@ -17,11 +17,12 @@ const Grid = () =>  {
 
     const generate = () => {
         const maze = algo(grid, grid[Math.floor(ROW/2)][Math.floor(COL/2)]);
+        
         console.log(maze.length)
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 30*i );
+              }, 10*i );
         }
 
     };
@@ -51,7 +52,7 @@ const Grid = () =>  {
                             {row.map((node, nodeIdx) => {
                                 
                                 const {col, row, visited, path, current, top, bottom, right, left, deadEnd,
-                                    visitedCurr, visitedPath} = node;
+                                    discard,visitedCurr, visitedPath} = node;
                                 return(
                                     <Node 
                                         key = {nodeIdx}
@@ -65,6 +66,7 @@ const Grid = () =>  {
                                         right = {right}
                                         left = {left}
                                         deadEnd = {deadEnd}
+                                        discard = {discard}
                                         visitedCurr = {visitedCurr}
                                         visitedPath = {visitedPath}
                                     ></Node>
@@ -103,6 +105,7 @@ const createNode = (col, row) => {
         right: true,
         left: true,
         deadEnd: false,
+        discard: false,
         visitedCurr: false,
         visitedPath: false
     }

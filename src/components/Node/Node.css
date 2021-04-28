@@ -3,11 +3,11 @@
 }
 
 .bottom{
-  border-bottom: 5px solid black;
+  border-bottom: 10px solid black;
 }
 
 .right{
-  border-right: 5px solid black;
+  border-right: 10px solid black;
 }
 
 .bottomFalse{
@@ -18,8 +18,32 @@
   border-right: None
 }
 
+.noWallRel{
+  border-bottom: None;
+  border-right: None;
+  position: relative
+}
+
+.noWallRel:after{
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: black;
+}
+
 .current {
   background-color: rgb(34, 147, 247);
+}
+
+.deadend {
+  background-color: black;
+}
+
+.discard{
+  background-color: green;
 }
 
 .path {

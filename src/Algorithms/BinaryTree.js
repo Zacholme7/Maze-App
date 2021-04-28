@@ -19,8 +19,6 @@ function northWestNeightbor(cell){
 }
 
 
-
-
 export function binaryTree(grid, placeholder){
     // loop through entire grid
     let gridArr = []
