@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 25;
-export const COL = 60;
+export const ROW = 30;
+export const COL = 75;
 
 
 
@@ -16,13 +16,12 @@ const Grid = () =>  {
     
 
     const generate = () => {
-        const maze = algo(grid, grid[Math.floor(ROW/2)][Math.floor(COL/2)]);
+        const maze = algo(grid, grid[0][0], grid[ROW-1][COL-1]);
         
-        console.log(maze.length)
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 10*i );
+              }, 15*i );
         }
 
     };
@@ -51,11 +50,12 @@ const Grid = () =>  {
                         <div key={rowIdx} className="row" style={{height: `calc(100% / ${ROW}`, width: "100%", display: 'flex'}}>
                             {row.map((node, nodeIdx) => {
                                 
-                                const {col, row, visited, path, current, top, bottom, right, left, deadEnd,
-                                    discard,visitedCurr, visitedPath} = node;
+                                const {starting, ending, col, row, visited, path, current, top, bottom, right, left, doublePath} = node;
                                 return(
                                     <Node 
                                         key = {nodeIdx}
+                                        starting = {starting}
+                                        ending = {ending}
                                         col = {col}
                                         row = {row}
                                         visited = {visited}
@@ -65,10 +65,7 @@ const Grid = () =>  {
                                         bottom = {bottom}
                                         right = {right}
                                         left = {left}
-                                        deadEnd = {deadEnd}
-                                        discard = {discard}
-                                        visitedCurr = {visitedCurr}
-                                        visitedPath = {visitedPath}
+                                        doublePath = {doublePath}
                                     ></Node>
                                 );
                             })}
@@ -95,6 +92,8 @@ const getInitialGrid = () =>{
 
 const createNode = (col, row) => {
     return {
+        starting: false,
+        ending: false,
         col: col, 
         row: row,
         visited: false,
@@ -104,10 +103,7 @@ const createNode = (col, row) => {
         bottom: true,
         right: true,
         left: true,
-        deadEnd: false,
-        discard: false,
-        visitedCurr: false,
-        visitedPath: false
+        doublePath: false
     }
 }
 

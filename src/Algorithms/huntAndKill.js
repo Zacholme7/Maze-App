@@ -22,7 +22,7 @@ function randomWalk(grid, gridArr, currCell){
 }
 
 /* preforms the hunt and kill maze generation algorithm */
-export function huntAndKill(grid, placeholder){
+export function huntAndKill(grid, placeholder, ending){
     let gridArr = []
     for(let i = 0; i < grid.length; i++){
         for(let j = 0; j < grid[0].length; j++){
