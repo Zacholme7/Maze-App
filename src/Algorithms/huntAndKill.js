@@ -1,3 +1,4 @@
+import { ROW, COL } from '../components/Grid/Grid'
 import {getNeighbors, removeWall, newGrid} from './utility'
 
 /* preforms a random walk for the passed cell */
@@ -30,5 +31,8 @@ export function huntAndKill(grid){
             randomWalk(grid, gridArr, grid[i][j])
         }
     }
+    grid[0][0].starting = true;
+    grid[ROW-1][COL-1].ending = true;
+    gridArr.push(newGrid(grid))
     return gridArr
 }

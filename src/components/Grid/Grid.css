@@ -19,14 +19,14 @@
 }
 
 .control-container{
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.generate {
+.control-btn {
     color: white;
     font-size: 15px;
 
@@ -39,11 +39,11 @@
     transition: all .3s;
 }
 
-.generate:hover{
+.control-btn:hover{
     transform: scale(1.1);
 }
 
-.generate:active{
+.control-btn:active{
     transform: translateY(1px);
 }
 

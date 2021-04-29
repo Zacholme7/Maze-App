@@ -1,4 +1,6 @@
+import { ROW, COL } from '../components/Grid/Grid.js';
 import {removeWall, newGrid} from './utility.js'
+
 /* Implements the sidewinder maze generation algorithm */
 
 function carveCondition(currCell){
@@ -35,5 +37,8 @@ export function sideWinder(grid){
             grid[i][j].current = false;
         }
     }
+    grid[0][0].starting = true;
+    grid[ROW-1][COL-1].ending = true;
+    gridArr.push(newGrid(grid))
     return gridArr
 }

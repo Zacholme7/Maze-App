@@ -38,13 +38,13 @@ const Grid = () =>  {
                 
            <div className="top">
                <div className="control-container">
-               <button className={`generate`} onClick={() => generate()} >
+               <button className={`control-btn`} onClick={() => generate()} >
                        Generate
             </button>
-            <button className={`generate`} onClick={() => resetGrid()} >
+            <button className={`control-btn`} onClick={() => resetGrid()} >
                        Reset
             </button>
-            <button className={`generate`} onClick={() => generate()} >
+            <button className={`control-btn`} onClick={() => generate()} >
                        Solve
             </button>
                </div>
