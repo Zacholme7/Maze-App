@@ -1,10 +1,11 @@
+import { ROW, COL} from '../components/Grid/Grid';
 import {getNeighbors, removeWall, newGrid} from './utility'
 
 /* Preforms the recursive backtracking maze generation algorithm */
-export function recursiveBack(grid, starting){
+export function recursiveBack(grid){
     let stack = [];
     let gridArr = [];
-    let curr = starting;
+    let curr = grid[Math.floor(ROW/2)][Math.floor(COL/2)];
     curr.visited = true;
     curr.path = true;
     stack.push(curr);

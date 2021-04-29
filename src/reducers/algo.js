@@ -4,7 +4,7 @@ import { binaryTree } from '../Algorithms/BinaryTree';
 import { huntAndKill } from '../Algorithms/huntAndKill';
 import { sideWinder } from '../Algorithms/Sidewinder';
 import { deadend } from '../Pathfinders/Deadend';
-import { wallFollower } from '../Pathfinders/WallFollower';
+import { leftHand } from '../Pathfinders/LeftHand';
 
 
 const algoReducer = (state = recursiveBack, action) => {
@@ -22,7 +22,7 @@ const algoReducer = (state = recursiveBack, action) => {
         case 'DeadEnd':
             return deadend;
         case 'LeftHand':
-            return wallFollower;
+            return leftHand;
         default: 
             return state;
     }

@@ -19,7 +19,7 @@ function northWestNeightbor(cell){
 }
 
 
-export function binaryTree(grid, placeholder){
+export function binaryTree(grid){
     // loop through entire grid
     let gridArr = []
     for(let i = 0; i < grid.length; i++){

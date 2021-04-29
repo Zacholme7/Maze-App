@@ -1,4 +1,6 @@
 import { newGrid } from "../Algorithms/utility"
+import { ROW, COL } from "../components/Grid/Grid"
+
 
 // function that is passed the current direction and returns a list of the direction 
 // priorities in accordance with the left hand rule
@@ -17,20 +19,20 @@ function getDirectionPriority(currDirection){
 }
 
 // left hand rule follower algorithm for maze solving
-export function wallFollower(grid, starting, ending){
+export function leftHand(grid){
     let direction = "north" // initial starting direction
     let directions = [] // array of the directions in priority based on curr direction
     let solutionStack = [] // stack containing the solution
     let gridArr = [] // store the list of grid sequences for rendering
     
-    let currentCell = starting // init the current cell
+    let currentCell = grid[0][0] // init the current cell
     currentCell.path = true // current cell is on the path
     solutionStack.push({"cell": currentCell, "direction": direction}) // push starting/current to stack since it will always be a solution
 
     gridArr.push(newGrid(grid)) // push new grid copy
 
     // loop while you have not reached the end
-    while(currentCell != ending){
+    while(currentCell != grid[ROW-1][COL-1]){
 
         // get the current row and col, used for updating position
         let currentRow = currentCell.row

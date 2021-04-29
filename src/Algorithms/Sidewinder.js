@@ -13,7 +13,7 @@ function carveCondition(currCell){
 }
 
 
-export function sideWinder(grid, starting){
+export function sideWinder(grid){
     let gridArr = []
     for(let i = 0; i < grid.length; i++){
         let run = [] // init the run set to empty at the start of each row

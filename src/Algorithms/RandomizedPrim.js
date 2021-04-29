@@ -2,7 +2,8 @@ import { ROW, COL } from '../components/Grid/Grid'
 import {removeWall, getUnvisited, getVisited, newGrid} from './utility'
 
 
-export function randomizedPrims(grid, starting, ending){
+export function randomizedPrims(grid){
+    let starting = grid[Math.floor(ROW/2)][Math.floor(COL/2)]
     starting.visited = true  // set starting cell to visited
     let gridArr = []
     let borderArr = [...getUnvisited(grid, starting)] // get initial border arr

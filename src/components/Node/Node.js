@@ -21,7 +21,8 @@ class Node extends React.Component{
         return(
             <div
             id={`node-${row}-${col}`}
-            className={`cell ${start} ${end} ${currentNode} ${inPath} ${rightWall} ${bottomWall} ${doubleVisited} ${wallClass} ${wallClass}:after`}
+            className={`cell ${start} ${end} ${currentNode} ${inPath} 
+            ${rightWall} ${bottomWall} ${doubleVisited} ${wallClass} ${wallClass}:after`}
             style={{ width: `calc(100% / ${COL})`}}
             ></div>
         );

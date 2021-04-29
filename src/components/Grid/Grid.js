@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 30;
-export const COL = 75;
+export const ROW = 15;
+export const COL = 35;
 
 
 
@@ -16,7 +16,7 @@ const Grid = () =>  {
     
 
     const generate = () => {
-        const maze = algo(grid, grid[0][0], grid[ROW-1][COL-1]);
+        const maze = algo(grid);
         
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
@@ -92,18 +92,18 @@ const getInitialGrid = () =>{
 
 const createNode = (col, row) => {
     return {
-        starting: false,
-        ending: false,
-        col: col, 
-        row: row,
-        visited: false,
-        path: false,
-        current: false,
-        top: true,
-        bottom: true,
-        right: true,
-        left: true,
-        doublePath: false
+        starting: false, // the starting node
+        ending: false, // the ending node
+        col: col, // column of the cell
+        row: row, // row of the cell
+        visited: false, // has the cell been visited already
+        path: false, // is the cell part of the current path
+        current: false, // is the cell the current one
+        top: true, // top wall
+        bottom: true, // bottom wall
+        right: true, // right wall
+        left: true, // left wall
+        doublePath: false // double path when you backtrack in pathfinding
     }
 }
 
