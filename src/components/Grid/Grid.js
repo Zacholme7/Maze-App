@@ -37,9 +37,17 @@ const Grid = () =>  {
             <React.Fragment>
                 
            <div className="top">
-           <div className={`generate`} onClick={() => generate()} >
+               <div className="control-container">
+               <button className={`generate`} onClick={() => generate()} >
                        Generate
-            </div>
+            </button>
+            <button className={`generate`} onClick={() => resetGrid()} >
+                       Reset
+            </button>
+            <button className={`generate`} onClick={() => generate()} >
+                       Solve
+            </button>
+               </div>
             </div>
 
            

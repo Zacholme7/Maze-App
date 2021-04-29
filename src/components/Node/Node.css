@@ -34,29 +34,18 @@
   background: black;
 }
 
-.current .path{
+.current{
   background-color: rgb(34, 147, 247);
 }
 
-.deadend {
-  background-color: black;
-}
-
-.discard{
-  background-color: green;
-}
 
 
-.starting, .ending {
-  background-color: rgb(34, 147, 247);
-}
-
-.path{
-  background-color: rgb(97, 181, 255)
+.starting, .ending, .path {
+  background-color: grey;
 }
 
 .doublePath{
-  background-color: grey;
+  background-color: rgb(55, 54, 54);
 }
 
 

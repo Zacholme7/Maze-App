@@ -12,24 +12,39 @@
     height: 8vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     color: white;
+    background-color:#313032;
 
+}
+
+.control-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .generate {
     color: white;
-    font-size: 20px;
+    font-size: 15px;
+
     text-align: center;
-    align-items: center;
-    background-color:#164d91;
+    background-color:#4b4b4b;
     border-style: none;
-    width: 7.5%;
-    height: 40%;
-    border-radius: 20px;
+    width: 20%;
+    height: 60%;
     outline: none;
     transition: all .3s;
+}
+
+.generate:hover{
+    transform: scale(1.1);
+}
+
+.generate:active{
+    transform: translateY(1px);
 }
 
 .control{
