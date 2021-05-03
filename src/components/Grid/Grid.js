@@ -34,7 +34,7 @@ const Grid = () =>  {
 
 
         return(
-            <React.Fragment>
+            <div>
                 
            <div className="top">
                <div className="control-container">
@@ -81,7 +81,7 @@ const Grid = () =>  {
                     );
                 })}
             </div>
-            </React.Fragment>
+            </div>
         );
 }
 

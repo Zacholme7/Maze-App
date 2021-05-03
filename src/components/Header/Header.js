@@ -8,6 +8,7 @@ import { hunt } from '../../actions/hunt';
 import { sidewinder } from '../../actions/sidewinder';
 import { deadend } from '../../actions/deadend';
 import { lefthand } from '../../actions/lefthand';
+import { wilsons } from '../../actions/wilsons';
 
 
 
@@ -53,6 +54,13 @@ const Header = () => {
                     onClick={() => {dispatch(sidewinder()); setmazeActive(5)}}
                     >
                         Sidewinder
+
+                    </button>
+
+                    <button className={`btn-top ${mazeActive == 6 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(wilsons()); setmazeActive(6)}}
+                    >
+                        Wilsons
 
                     </button>
                     
