@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 25;
-export const COL = 60;
+export const ROW = 20;
+export const COL = 45;
 
 
 
@@ -21,7 +21,7 @@ const Grid = () =>  {
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 15*i );
+              }, 10*i );
         }
 
     };
@@ -111,7 +111,8 @@ const createNode = (col, row) => {
         bottom: true, // bottom wall
         right: true, // right wall
         left: true, // left wall
-        doublePath: false // double path when you backtrack in pathfinding
+        doublePath: false, // double path when you backtrack in pathfinding
+        inMaze: false // in maze for wilsons
     }
 }
 
