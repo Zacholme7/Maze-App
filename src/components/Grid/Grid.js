@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 17;
-export const COL = 40;
+export const ROW = 15;
+export const COL = 35;
 
 
 
