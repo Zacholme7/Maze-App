@@ -41,8 +41,14 @@ function removeWallDirection(cell, direction, grid){
         console.log("remove west")
         removeWall(cell, grid[cell.row][cell.col-1])
     }
-    
-    
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array
 }
 
 // maps 2D grid to 1D array
@@ -59,24 +65,37 @@ export function wilsons(grid){
         mazeObj[i] = false
     }
 
+    let remainingCells = [];
+    for(let row = 0; row < ROW; row++){
+        for(let col = 0; col < COL; col++){
+            remainingCells.push(grid[row][col]);
+        }
+    }
+
+    shuffleArray(remainingCells)
+
+
+
     let gridArr = [] // grid array to hold updated grids
     let currentCell = grid[Math.floor(ROW/2)][Math.floor(COL/2)] // sets starting to middle of maze
     mazeObj[getPos(currentCell)] = true // this random cell, middle, is now part of the maze
     let counter = ROW * COL - 1 // how many cells are left to be part of the maze
-    currentCell.current = true;
     gridArr.push(newGrid(grid))
 
     
     // want to keep looping while we have more cells left in the maze
-    while(counter > 0){
+    while(remainingCells.length > 0){
         let pathObj = {} // will hold the path to trace back
+        let cellArr = [] // hold the cells to get rid of highlighting
+
 
         // pick unvisited cell, do this at the start of every random walk
-        let randRow = Math.floor(Math.random() * ROW)
-        let randCol = Math.floor(Math.random() * COL)
-        let currentCell = grid[randRow][randCol]
+        //let randRow = Math.floor(Math.random() * ROW)
+        //let randCol = Math.floor(Math.random() * COL)
+        let currentCell = remainingCells.pop();
         let pathCell = currentCell // used for path unwarp
-        currentCell.path = true;
+        currentCell.path = true
+        cellArr.push(currentCell)
         gridArr.push(newGrid(grid))
 
 
@@ -84,26 +103,32 @@ export function wilsons(grid){
         
         // loop while rand is not in the maze
         while(true){
+            
             let nextCell = getNeighbors(grid, currentCell) // this will give me a neighbor of the random startin cell
 
             // check if that cell is already in the maze
             if(mazeObj[getPos(currentCell)] == true){
-                pathObj[getPos(currentCell).toString()] = 4 // ending, this cell is in the maze
+                pathObj[getPos(currentCell)] = 4 // ending, this cell is in the maze
                 gridArr.push(newGrid(grid))
                 break;
             } 
 
             let direction = getDirection(currentCell, nextCell)
-            pathObj[getPos(currentCell).toString()] = direction
+            pathObj[getPos(currentCell)] = direction
             
             
 
             currentCell = nextCell // reset the current cell
             currentCell.path = true;
+            cellArr.push(currentCell);
+            currentCell.doublePath = true
             gridArr.push(newGrid(grid))
+            currentCell.doublePath = false;
         }
-        console.log(pathObj)
-        console.log(getPos(pathCell))
+        
+        for(let i = 0; i < cellArr.length; i++){
+            cellArr[i].path = false;
+        }
 
         
         
@@ -114,26 +139,29 @@ export function wilsons(grid){
     
             if(tempDir == 0){
                 removeWallDirection(pathCell, 0, grid)
+                gridArr.push(newGrid(grid))
                 counter -= 1
                 mazeObj[getPos(pathCell)] = true
                 pathCell = grid[pathCell.row -1][pathCell.col]
             } else if(tempDir == 1){
                 removeWallDirection(pathCell, 1, grid)
+                gridArr.push(newGrid(grid))
                 counter -= 1
                 mazeObj[getPos(pathCell)] = true
                 pathCell = grid[pathCell.row][pathCell.col+1]
             } else if(tempDir == 2){
                 removeWallDirection(pathCell, 2, grid)
+                gridArr.push(newGrid(grid))
                 counter -= 1
                 mazeObj[getPos(pathCell)] = true
                 pathCell = grid[pathCell.row +1][pathCell.col]
             } else if(tempDir == 3){
                 removeWallDirection(pathCell, 3, grid)
+                gridArr.push(newGrid(grid))
                 counter -= 1
                 mazeObj[getPos(pathCell)] = true
                 pathCell = grid[pathCell.row][pathCell.col-1]
             }
-            
         }
     }
     gridArr.push(newGrid(grid))

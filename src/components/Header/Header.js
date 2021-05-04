@@ -22,10 +22,11 @@ const Header = () => {
             
             <div className="container">
                 <div className="top-header">
-                <button className={`btn-top ${mazeActive == 0 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(lefthand()); setmazeActive(0)}}
+                <button className={`btn-top ${mazeActive == 6 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(wilsons()); setmazeActive(6)}}
                     >
-                        Eller's
+                        Wilsons
+
                     </button>
                     <button className={`btn-top ${mazeActive == 1 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(recursive()); setmazeActive(1)}}
@@ -57,12 +58,7 @@ const Header = () => {
 
                     </button>
 
-                    <button className={`btn-top ${mazeActive == 6 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(wilsons()); setmazeActive(6)}}
-                    >
-                        Wilsons
-
-                    </button>
+                    
                     
                     
                 </div>
