@@ -91,30 +91,25 @@ export function deadend(grid){
         }
     }
 
-    /*
-    for(let i = 0; i < deadEnds.length; i++){
-        console.log("running")
-        deadEnds[i].doublePath = true;
-        gridArr.push(newGrid(grid))
-    }
-    */
-    
-    
+
     while(deadEnds.length > 0){
         for(let i = deadEnds.length - 1; i >= 0; i--){
-            if(deadEnds[i] != undefined){
-                let unvisited = getFalseWallNeighbor(grid, deadEnds[i])
-            console.log(unvisited)
-            if(unvisited.length > 1){
+            let unvisited = getFalseWallNeighbor(grid, deadEnds[i])
+            if(unvisited.length == 0){
                 deadEnds.splice(i, 1)
-            } 
-            else{
+            }else if((deadEnds[i].row == 0 && deadEnds[i].col == 0) || (deadEnds[i].row == ROW-1 && deadEnds[i].col == COL-1) ){
+                deadEnds[i].visited = true
+                deadEnds.splice(i, 1)
+            } else if(unvisited.length > 1){
+                deadEnds.splice(i, 1)
+            } else if((unvisited[0].row == 0 && unvisited[0].col == 0) || (unvisited[0].row == ROW-1 && unvisited[0].col == COL-1) ){
+                deadEnds[i].visited = true;
+                deadEnds[i].path = true;
+                deadEnds.splice(i, 1) 
+            } else{
                 deadEnds[i].path = true;
                 deadEnds[i].visited = true;
                 deadEnds[i] = unvisited[0]
-            }
-            } else{
-                deadEnds.splice(i, 1)
             }
         }
         gridArr.push(newGrid(grid))
