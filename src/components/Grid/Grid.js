@@ -3,28 +3,40 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 15;
-export const COL = 35;
+export const ROW = 17;
+export const COL = 40;
 
 
 
 const Grid = () =>  {
     
     const [grid, setGrid] = useState(getInitialGrid());
-    const [reset, setReset] = useState(0);
-    const algo = useSelector(state => state.counter)
+    const algo = useSelector(state => state.algo)
+    const solver = useSelector(state => state.solver)
     
 
     const generate = () => {
         const maze = algo(grid);
-        
+        setGrid(maze.pop())
+        /*
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 10*i );
+              }, 20*i );
         }
+        */
 
     };
+
+    const pathfinder = () => {
+        const maze = solver(grid);
+        for(let i = 0; i < maze.length; i++){
+            setTimeout(() => {
+                setGrid(maze[i])
+              }, 20*i );
+        }
+    }
+
 
     const resetGrid = () => {
         setGrid(getInitialGrid())
@@ -44,7 +56,7 @@ const Grid = () =>  {
             <button className={`control-btn`} onClick={() => resetGrid()} >
                        Reset
             </button>
-            <button className={`control-btn`} onClick={() => generate()} >
+            <button className={`control-btn`} onClick={() => pathfinder()} >
                        Solve
             </button>
                </div>

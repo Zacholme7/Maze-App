@@ -43,6 +43,7 @@ function removeWallDirection(cell, direction, grid){
     }
 }
 
+// initial shuffle of array for random remove
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -74,8 +75,6 @@ export function wilsons(grid){
 
     shuffleArray(remainingCells)
 
-
-
     let gridArr = [] // grid array to hold updated grids
     let currentCell = grid[Math.floor(ROW/2)][Math.floor(COL/2)] // sets starting to middle of maze
     mazeObj[getPos(currentCell)] = true // this random cell, middle, is now part of the maze
@@ -88,18 +87,12 @@ export function wilsons(grid){
         let pathObj = {} // will hold the path to trace back
         let cellArr = [] // hold the cells to get rid of highlighting
 
-
         // pick unvisited cell, do this at the start of every random walk
-        //let randRow = Math.floor(Math.random() * ROW)
-        //let randCol = Math.floor(Math.random() * COL)
         let currentCell = remainingCells.pop();
         let pathCell = currentCell // used for path unwarp
         currentCell.path = true
         cellArr.push(currentCell)
         gridArr.push(newGrid(grid))
-
-
-        //counter -= 1 // can decrement a counter since this will 100% be a start for the path
         
         // loop while rand is not in the maze
         while(true){
@@ -116,9 +109,10 @@ export function wilsons(grid){
             let direction = getDirection(currentCell, nextCell)
             pathObj[getPos(currentCell)] = direction
             
-            
 
             currentCell = nextCell // reset the current cell
+
+            // used for visualization updating
             currentCell.path = true;
             cellArr.push(currentCell);
             currentCell.doublePath = true
@@ -126,16 +120,15 @@ export function wilsons(grid){
             currentCell.doublePath = false;
         }
         
+        // reset the path for visualization 
         for(let i = 0; i < cellArr.length; i++){
             cellArr[i].path = false;
         }
-
         
         
         // want to unwrap pathObj and remove walls
         while(pathObj[getPos(pathCell)] != 4){
             let tempDir = pathObj[getPos(pathCell)];
-            console.log(tempDir)
     
             if(tempDir == 0){
                 removeWallDirection(pathCell, 0, grid)
@@ -166,7 +159,6 @@ export function wilsons(grid){
     }
     gridArr.push(newGrid(grid))
     return gridArr;
-    
 }
 
 

@@ -22,8 +22,8 @@ const Header = () => {
             
             <div className="container">
                 <div className="top-header">
-                <button className={`btn-top ${mazeActive == 6 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(wilsons()); setmazeActive(6)}}
+                <button className={`btn-top ${mazeActive == 0 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(wilsons()); setmazeActive(0)}}
                     >
                         Wilsons
 
@@ -65,7 +65,7 @@ const Header = () => {
                 <div className="bottom-header">
 
                 <button className={`btn-top ${pathActive == 0 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(sidewinder()); setpathActive(0)}}
+                    onClick={() => {dispatch(lefthand()); setpathActive(0)}}
                     >
                         Left
                     </button>
@@ -75,9 +75,9 @@ const Header = () => {
                     </div>
 
                     <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(sidewinder()); setpathActive(1)}}
+                    onClick={() => {dispatch(deadend()); setpathActive(1)}}
                     >
-                        Right
+                        DeadEnd
                     </button>
                 </div>
             </div>
