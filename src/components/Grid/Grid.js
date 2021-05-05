@@ -3,8 +3,8 @@ import Node from '../Node/Node'
 import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
-export const ROW = 30;
-export const COL = 70;
+export const ROW = 20;
+export const COL = 50;
 
 
 
@@ -22,9 +22,10 @@ const Grid = () =>  {
         for(let i = 0; i < maze.length; i++){
             setTimeout(() => {
                 setGrid(maze[i])
-              }, 20*i );
+              }, 500*i );
         }
         */
+        
 
     };
 

@@ -9,6 +9,8 @@ import { sidewinder } from '../../actions/sidewinder';
 import { deadend } from '../../actions/deadend';
 import { lefthand } from '../../actions/lefthand';
 import { wilsons } from '../../actions/wilsons';
+import { righthand } from '../../actions/righthand';
+import { recursivesolver } from '../../actions/recursivesolver';
 
 
 
@@ -70,14 +72,26 @@ const Header = () => {
                         Left
                     </button>
 
+                    <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(righthand()); setpathActive(1)}}
+                    >
+                        Right
+                    </button>
+
                     <div className="title">
                         PathFinder
                     </div>
 
-                    <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(deadend()); setpathActive(1)}}
+                    <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(deadend()); setpathActive(2)}}
                     >
                         DeadEnd
+                    </button>
+
+                    <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(recursivesolver()); setpathActive(2)}}
+                    >
+                        Recursive
                     </button>
                 </div>
             </div>
