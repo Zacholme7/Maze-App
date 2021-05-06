@@ -1,16 +1,8 @@
 import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
-import {recursive} from '../../actions/recursive'
-import { prim } from '../../actions/prim';
-import { binary } from '../../actions/binary'
-import { hunt } from '../../actions/hunt';
-import { sidewinder } from '../../actions/sidewinder';
-import { deadend } from '../../actions/deadend';
-import { lefthand } from '../../actions/lefthand';
-import { wilsons } from '../../actions/wilsons';
-import { righthand } from '../../actions/righthand';
-import { recursivesolver } from '../../actions/recursivesolver';
+import { lefthand, righthand, deadend, recursivesolver, depth, breadth } from '../../actions/solvers';
+import { wilsons, sidewinder, hunt, binary, prim, recursive } from '../../actions/generators';
 
 
 
@@ -67,13 +59,19 @@ const Header = () => {
                 <div className="bottom-header">
 
                 <button className={`btn-top ${pathActive == 0 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(lefthand()); setpathActive(0)}}
+                    onClick={() => {dispatch(breadth()); setpathActive(0)}}
+                    >
+                        Breath
+                    </button>
+
+                <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(lefthand()); setpathActive(1)}}
                     >
                         Left
                     </button>
 
-                    <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(righthand()); setpathActive(1)}}
+                    <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(righthand()); setpathActive(2)}}
                     >
                         Right
                     </button>
@@ -82,16 +80,22 @@ const Header = () => {
                         PathFinder
                     </div>
 
-                    <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(deadend()); setpathActive(2)}}
+                    <button className={`btn-top ${pathActive == 3 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(deadend()); setpathActive(3)}}
                     >
                         DeadEnd
                     </button>
 
-                    <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(recursivesolver()); setpathActive(2)}}
+                    <button className={`btn-top ${pathActive == 4 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(recursivesolver()); setpathActive(4)}}
                     >
                         Recursive
+                    </button>
+
+                    <button className={`btn-top ${pathActive == 5 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(depth()); setpathActive(5)}}
+                    >
+                        Depth
                     </button>
                 </div>
             </div>

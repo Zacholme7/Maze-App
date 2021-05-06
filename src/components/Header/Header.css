@@ -21,7 +21,7 @@
     background-color:#29282b;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: white;
     font-size: 17px;
     text-align: center;

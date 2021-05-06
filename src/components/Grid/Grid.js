@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 
 export const ROW = 20;
-export const COL = 50;
+export const COL = 45;
 
 
 

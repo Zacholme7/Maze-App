@@ -1,0 +1,35 @@
+export const binary = () => {
+    return{
+        type: "BinaryTree"
+    };
+};
+
+export const hunt = () => {
+    return{
+        type: "HuntAndKill"
+    };
+};
+
+export const prim = () => {
+    return{
+        type: "Prim"
+    };
+};
+
+export const recursive = () => {
+    return{
+        type: "RecursiveBack"
+    };
+};
+
+export const sidewinder = () => {
+    return{
+        type: "Sidewinder"
+    };
+};
+
+export const wilsons = () => {
+    return{
+        type: "Wilsons"
+    };
+};
