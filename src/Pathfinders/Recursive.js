@@ -44,7 +44,7 @@ function getFalseWallNeighbor(grid, cell){
 
 export function recursive(grid){
 
-    // visited reset, previous algo changed it
+    // reset visited, previous algo changed it
     for(let row = 0; row < ROW; row++){
         for(let col = 0; col < COL; col++){
             grid[row][col].visited = false;
@@ -59,10 +59,26 @@ export function recursive(grid){
     let currentCell = grid[0][0] 
     currentCell.visited = true
     currentCell.path = true
-    gridArr.push(newGrid(grid));
     stack.push(currentCell)
-    let i = 0;
+
+    gridArr.push(newGrid(grid));
+
+    // while we are not at the ending cell
     while(currentCell.row != ROW -1 || currentCell.col != COL-1){
+        let nextCell = getFalseWallNeighbor(grid, currentCell)
+        if(!(nextCell == undefined)){
+            nextCell.visited = true;
+            nextCell.path = true;
+            stack.push(nextCell)
+            currentCell = nextCell
+        } else{
+            currentCell = stack.pop()
+            currentCell.path = false;
+        }
+        /*
+        if(currentCell != undefined){
+
+        }
         let nextCell = getFalseWallNeighbor(grid, currentCell)
         console.log(nextCell)
         if(nextCell){
@@ -79,6 +95,7 @@ export function recursive(grid){
             }
             
         }
+        */
         gridArr.push(newGrid(grid));
     }
 
