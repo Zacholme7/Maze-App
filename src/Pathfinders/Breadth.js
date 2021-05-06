@@ -27,24 +27,20 @@ export function breadthSearch(grid){
     // while there are cells that have not been explored
     while(notExplored.length > 0){
         let current = notExplored.shift() // gets the cell at the front
+        current.doublePath = false;
         let currNeighbors = getFalseWallNeighbor(grid, current)
         console.log(currNeighbors)
         for(let i = 0; i < currNeighbors.length; i++){
             currNeighbors[i].path = true
             currNeighbors[i].visited = true
+            currNeighbors[i].doublePath = true;
             // use curreNeighbors[i] as a key, and the current as a value
             pathObj[getPos(currNeighbors[i])] = getPos(current)
             notExplored.push(currNeighbors[i])
         }
-
         gridArr.push(newGrid(grid)) 
-        
     }
 
-    // start at the last cell, so getPos(grid[ROW-1][COL-1])
-    // check what the val is there
-    // set its path to false
-    // set that value to the new current
     let backtrackPos = getPos(grid[ROW-1][COL-1])
     gridCells[backtrackPos].path = false
     gridArr.push(newGrid(grid)) 
@@ -55,13 +51,4 @@ export function breadthSearch(grid){
         gridArr.push(newGrid(grid)) 
     }
     return gridArr;
-
-    // place the starting in the frontier
-    // while the frontier is not empty
-    // remove from start of frontier
-    // get all the unvisited neighbors
-    // loop through unvisited neighbors and add to frontier
-
-
-
 }

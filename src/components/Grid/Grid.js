@@ -6,41 +6,57 @@ import './Grid.css'
 export const ROW = 20;
 export const COL = 45;
 
-
+let gridConditioner = 0;
+let solveConditioner = 0
 
 const Grid = () =>  {
     
     const [grid, setGrid] = useState(getInitialGrid());
     const algo = useSelector(state => state.algo)
     const solver = useSelector(state => state.solver)
+
     
 
     const generate = () => {
-        const maze = algo(grid);
-        setGrid(maze.pop())
-        /*
-        for(let i = 0; i < maze.length; i++){
-            setTimeout(() => {
-                setGrid(maze[i])
-              }, 500*i );
+        if(gridConditioner == 0){
+            gridConditioner = 1;
+            const maze = algo(grid);
+            setGrid(maze.pop())
+            console.log(gridConditioner)
+            /*
+            for(let i = 0; i < maze.length; i++){
+                setTimeout(() => {
+                    setGrid(maze[i])
+                  }, 20*i );
+            }
+            */
+            
+
         }
+        /*
+        
         */
         
 
     };
 
     const pathfinder = () => {
-        const maze = solver(grid);
-        for(let i = 0; i < maze.length; i++){
-            setTimeout(() => {
-                setGrid(maze[i])
-              }, 20*i );
+        if(gridConditioner == 1 && solveConditioner == 0){
+            solveConditioner = 1
+            const maze = solver(grid);
+            for(let i = 0; i < maze.length; i++){
+                setTimeout(() => {
+                    setGrid(maze[i])
+                }, 20*i );
+            }
         }
     }
 
 
     const resetGrid = () => {
-        setGrid(getInitialGrid())
+        gridConditioner = 0
+        solveConditioner = 0
+        setGrid(getInitialGrid());
     };
 
     
