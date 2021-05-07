@@ -30,12 +30,14 @@ export function depthSearch(grid){
     while(notExplored.length > 0){
         let currNeighbors = getFalseWallNeighbor(grid, current)
         for(let i = 0; i < currNeighbors.length; i++){
+            if(currNeighbors[i] != undefined){
                 currNeighbors[i].path = true
                 currNeighbors[i].visited = true
                 currNeighbors[i].doublePath = true;
 
                 pathObj[getPos(currNeighbors[i])] = getPos(current)
                 notExplored.push(currNeighbors[i])
+            }
         }
         current = notExplored.pop();
         current.doublePath = false;

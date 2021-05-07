@@ -29,7 +29,6 @@ export function breadthSearch(grid){
         let current = notExplored.shift() // gets the cell at the front
         current.doublePath = false;
         let currNeighbors = getFalseWallNeighbor(grid, current)
-        console.log(currNeighbors)
         for(let i = 0; i < currNeighbors.length; i++){
             currNeighbors[i].path = true
             currNeighbors[i].visited = true

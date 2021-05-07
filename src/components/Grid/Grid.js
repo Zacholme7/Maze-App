@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 import { newGrid } from '../../Algorithms/utility';
 
-export const ROW = 20;
-export const COL = 45;
+export const ROW = 17;
+export const COL = 43;
 
 const getInitialGrid = () =>{
     const grid = [];
@@ -59,13 +59,10 @@ const Grid = () =>  {
             gridConditioner = 1;
             solveConditioner = 1
             let maze = algo(grid);
-            setGrid(maze.pop())
-            /*
             for(let i = 0; i < maze.length; i++){
-                await sleep(5);
+                await sleep(.1);
                 setGrid(maze[i])
             }
-            */
             solveConditioner = 0;
             resetConditioner = 1;
         }
@@ -105,6 +102,30 @@ const Grid = () =>  {
         } 
     }
 
+    const generateInstantly = () => {
+        if(gridConditioner == 0){
+            gridConditioner = 1;
+            solveConditioner = 1
+            let maze = algo(grid);
+            setGrid(maze.pop())
+            solveConditioner = 0;
+            resetConditioner = 1;
+        }
+    }
+
+    const solveInstantly = () => {
+        if(gridConditioner == 1 && solveConditioner == 0){
+            resetConditioner = 0;
+            solveConditioner = 1
+            let tempGrid = newGrid(grid);
+            let solvedMaze = solver(grid);
+            setGrid(solvedMaze.pop())
+            setReset(tempGrid)
+            resetMazeConditioner = 1;
+            resetConditioner = 1;
+        }
+    }
+
     
 
 
@@ -112,16 +133,23 @@ const Grid = () =>  {
             <div>
                 
            <div className="top">
+
                <div className="control-container">
                <button className={`control-btn`} onClick={() => generate()} >
                        Generate Maze
             </button>
+               <button className={`control-btn`} onClick={() => generateInstantly()} >
+                       Generate Maze Instantly
+            </button> 
             <button className={`control-btn`} onClick={() => resetGrid()} >
                        Reset to Inital Grid
             </button>
 
             <button className={`control-btn`} onClick={() => resetMaze()} >
                        Reset to Unsolved Maze
+            </button>
+            <button className={`control-btn`} onClick={() => solveInstantly()} >
+                       Solve Maze Instantly
             </button>
             <button className={`control-btn`} onClick={() => pathfinder()} >
                        Solve Maze

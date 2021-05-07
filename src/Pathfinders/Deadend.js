@@ -54,14 +54,12 @@ export function deadend(grid){
     while(deadEnds.length > 0){
         for(let i = deadEnds.length - 1; i >= 0; i--){
             let unvisited = getFalseWallNeighbor(grid, deadEnds[i])
-            if(unvisited.length == 0){
+            if(unvisited.length == 0 || unvisited.length > 1){
                 deadEnds.splice(i, 1)
+            
             }else if((deadEnds[i].row == 0 && deadEnds[i].col == 0) || (deadEnds[i].row == ROW-1 && deadEnds[i].col == COL-1) ){
-                deadEnds[i].visited = true
                 deadEnds.splice(i, 1)
-            } else if(unvisited.length > 1){
-                deadEnds.splice(i, 1)
-            } else if((unvisited[0].row == 0 && unvisited[0].col == 0) || (unvisited[0].row == ROW-1 && unvisited[0].col == COL-1) ){
+            }else if((unvisited[0].row == 0 && unvisited[0].col == 0) || (unvisited[0].row == ROW-1 && unvisited[0].col == COL-1) ){
                 deadEnds[i].visited = true;
                 deadEnds[i].path = true;
                 deadEnds.splice(i, 1) 
