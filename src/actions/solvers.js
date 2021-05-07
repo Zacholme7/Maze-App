@@ -16,12 +16,6 @@ export const deadend = () => {
     };
 };
 
-export const recursivesolver = () => {
-    return{
-        type: "RecursiveSolver"
-    };
-};
-
 export const breadth = () => {
     return{
         type: "BreadthSolver"

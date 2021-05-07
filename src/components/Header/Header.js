@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
-import { lefthand, righthand, deadend, recursivesolver, depth, breadth } from '../../actions/solvers';
+import { lefthand, righthand, deadend, depth, breadth } from '../../actions/solvers';
 import { wilsons, sidewinder, hunt, binary, prim, recursive } from '../../actions/generators';
 
 
@@ -17,15 +17,15 @@ const Header = () => {
             <div className="container">
                 <div className="top-header">
                 <button className={`btn-top ${mazeActive == 0 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(wilsons()); setmazeActive(0)}}
+                    onClick={() => {dispatch(recursive()); setmazeActive(0)}}
                     >
-                        Wilsons
+                        Recursive
 
                     </button>
                     <button className={`btn-top ${mazeActive == 1 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(recursive()); setmazeActive(1)}}
+                    onClick={() => {dispatch(sidewinder()); setmazeActive(1)}}
                     >
-                        Recursive
+                        Sidewinder
                     </button>
                     <button className={`btn-top ${mazeActive == 2 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(prim()); setmazeActive(2)}}
@@ -43,12 +43,12 @@ const Header = () => {
                     <button className={`btn-top ${mazeActive == 4 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(hunt()); setmazeActive(4)}}
                     >
-                        Hunt
+                        Hunt And Kill
                     </button>
                     <button className={`btn-top ${mazeActive == 5 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(sidewinder()); setmazeActive(5)}}
+                    onClick={() => {dispatch(wilsons()); setmazeActive(5)}}
                     >
-                        Sidewinder
+                        Wilsons
 
                     </button>
 
@@ -59,21 +59,21 @@ const Header = () => {
                 <div className="bottom-header">
 
                 <button className={`btn-top ${pathActive == 0 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(breadth()); setpathActive(0)}}
+                    onClick={() => {dispatch(lefthand()); setpathActive(0)}}
                     >
-                        Breath
+                        Left Hand
                     </button>
 
                 <button className={`btn-top ${pathActive == 1 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(lefthand()); setpathActive(1)}}
+                    onClick={() => {dispatch(breadth()); setpathActive(1)}}
                     >
-                        Left
+                        Breath First
                     </button>
 
                     <button className={`btn-top ${pathActive == 2 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(righthand()); setpathActive(2)}}
                     >
-                        Right
+                        Right Hand
                     </button>
 
                     <div className="title">
@@ -83,19 +83,19 @@ const Header = () => {
                     <button className={`btn-top ${pathActive == 3 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(deadend()); setpathActive(3)}}
                     >
-                        DeadEnd
+                        Deadend Filler
                     </button>
 
                     <button className={`btn-top ${pathActive == 4 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(recursivesolver()); setpathActive(4)}}
+                    onClick={() => {dispatch(deadend()); setpathActive(4)}}
                     >
-                        Recursive
+                        MAKE
                     </button>
 
                     <button className={`btn-top ${pathActive == 5 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(depth()); setpathActive(5)}}
                     >
-                        Depth
+                        Depth First
                     </button>
                 </div>
             </div>

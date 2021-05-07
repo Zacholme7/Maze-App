@@ -6,8 +6,43 @@ import './Grid.css'
 export const ROW = 20;
 export const COL = 45;
 
+const getInitialGrid = () =>{
+    const grid = [];
+    for(let row = 0; row < ROW; row++){
+        const currRow = [];
+        for(let col = 0; col < COL; col++){
+            currRow.push(createNode(col, row));
+        }
+        grid.push(currRow);
+    }
+    return grid;
+}
+
+const createNode = (col, row) => {
+    return {
+        starting: false, // the starting node
+        ending: false, // the ending node
+        col: col, // column of the cell
+        row: row, // row of the cell
+        visited: false, // has the cell been visited already
+        path: false, // is the cell part of the current path
+        current: false, // is the cell the current one
+        top: true, // top wall
+        bottom: true, // bottom wall
+        right: true, // right wall
+        left: true, // left wall
+        doublePath: false, // double path when you backtrack in pathfinding
+        inMaze: false // in maze for wilsons
+    }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let gridConditioner = 0;
-let solveConditioner = 0
+let solveConditioner = 0;
+let resetConditioner = 0;
 
 const Grid = () =>  {
     
@@ -15,49 +50,43 @@ const Grid = () =>  {
     const algo = useSelector(state => state.algo)
     const solver = useSelector(state => state.solver)
 
-    
-
-    const generate = () => {
+      
+    async function generate() {
         if(gridConditioner == 0){
             gridConditioner = 1;
-            const maze = algo(grid);
-            setGrid(maze.pop())
-            console.log(gridConditioner)
-            /*
+            solveConditioner = 1
+            let maze = algo(grid);
             for(let i = 0; i < maze.length; i++){
-                setTimeout(() => {
-                    setGrid(maze[i])
-                  }, 20*i );
+                await sleep(5);
+                setGrid(maze[i])
             }
-            */
-            
-
+            solveConditioner = 0;
+            resetConditioner = 1;
         }
-        /*
-        
-        */
-        
-
     };
 
-    const pathfinder = () => {
+    async function pathfinder() {
         if(gridConditioner == 1 && solveConditioner == 0){
+            resetConditioner = 0;
             solveConditioner = 1
-            const maze = solver(grid);
-            for(let i = 0; i < maze.length; i++){
-                setTimeout(() => {
-                    setGrid(maze[i])
-                }, 20*i );
+            let solvedMaze = solver(grid);
+            for(let i = 0; i < solvedMaze.length; i++){
+                await sleep(5);
+                setGrid(solvedMaze[i])
             }
+            resetConditioner = 1;
         }
     }
 
 
     const resetGrid = () => {
-        gridConditioner = 0
-        solveConditioner = 0
-        setGrid(getInitialGrid());
+        if(resetConditioner == 1 ){
+            gridConditioner = 0
+            solveConditioner = 0
+            setGrid(getInitialGrid());
+        }
     };
+
 
     
 
@@ -68,13 +97,13 @@ const Grid = () =>  {
            <div className="top">
                <div className="control-container">
                <button className={`control-btn`} onClick={() => generate()} >
-                       Generate
+                       Generate Maze
             </button>
             <button className={`control-btn`} onClick={() => resetGrid()} >
-                       Reset
+                       Reset to Inital Grid
             </button>
             <button className={`control-btn`} onClick={() => pathfinder()} >
-                       Solve
+                       Solve Maze
             </button>
                </div>
             </div>
@@ -115,34 +144,5 @@ const Grid = () =>  {
 }
 
 
-const getInitialGrid = () =>{
-    const grid = [];
-    for(let row = 0; row < ROW; row++){
-        const currRow = [];
-        for(let col = 0; col < COL; col++){
-            currRow.push(createNode(col, row));
-        }
-        grid.push(currRow);
-    }
-    return grid;
-}
-
-const createNode = (col, row) => {
-    return {
-        starting: false, // the starting node
-        ending: false, // the ending node
-        col: col, // column of the cell
-        row: row, // row of the cell
-        visited: false, // has the cell been visited already
-        path: false, // is the cell part of the current path
-        current: false, // is the cell the current one
-        top: true, // top wall
-        bottom: true, // bottom wall
-        right: true, // right wall
-        left: true, // left wall
-        doublePath: false, // double path when you backtrack in pathfinding
-        inMaze: false // in maze for wilsons
-    }
-}
 
 export default Grid;
