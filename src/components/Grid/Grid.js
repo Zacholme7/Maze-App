@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Node from '../Node/Node'
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import './Grid.css'
 import { newGrid } from '../../Algorithms/utility';
 
@@ -55,7 +55,7 @@ const Grid = () =>  {
 
       
     async function generate() {
-        if(gridConditioner == 0){
+        if(gridConditioner === 0){
             gridConditioner = 1;
             solveConditioner = 1
             let maze = algo(grid);
@@ -69,7 +69,7 @@ const Grid = () =>  {
     };
 
     async function pathfinder() {
-        if(gridConditioner == 1 && solveConditioner == 0){
+        if(gridConditioner === 1 && solveConditioner === 0){
             resetConditioner = 0;
             solveConditioner = 1
             let tempGrid = newGrid(grid);
@@ -86,7 +86,7 @@ const Grid = () =>  {
 
 
     const resetGrid = () => {
-        if(resetConditioner == 1 ){
+        if(resetConditioner === 1 ){
             gridConditioner = 0
             solveConditioner = 0
             setGrid(getInitialGrid());
@@ -103,7 +103,7 @@ const Grid = () =>  {
     }
 
     const generateInstantly = () => {
-        if(gridConditioner == 0){
+        if(gridConditioner === 0){
             gridConditioner = 1;
             solveConditioner = 1
             let maze = algo(grid);
@@ -114,7 +114,7 @@ const Grid = () =>  {
     }
 
     const solveInstantly = () => {
-        if(gridConditioner == 1 && solveConditioner == 0){
+        if(gridConditioner === 1 && solveConditioner === 0){
             resetConditioner = 0;
             solveConditioner = 1
             let tempGrid = newGrid(grid);

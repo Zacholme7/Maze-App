@@ -1,4 +1,3 @@
-import {ROW, COL} from '../components/Grid/Grid'
 import {removeWall, newGrid} from './utility'
 
 function northWestNeightbor(cell){
@@ -6,13 +5,13 @@ function northWestNeightbor(cell){
     // west = 2
     let row = cell.row
     let col = cell.col
-    if(row == 0 && col == 0){
+    if(row === 0 && col === 0){
         return
     }
     
-    if(row == 0){
+    if(row === 0){
         return 2
-    } else if(col == 0 && row > 0){
+    } else if(col === 0 && row > 0){
         return 1
     } 
     return Math.floor(Math.random() * (2 - 1 + 1) + 1);
@@ -27,10 +26,10 @@ export function binaryTree(grid){
             grid[i][j].current = true;
             
             let cond = northWestNeightbor(grid[i][j])
-            if( cond == 1){
+            if( cond === 1){
                 removeWall(grid[i-1][j], grid[i][j])
             }
-            if (cond == 2){
+            if (cond === 2){
                 removeWall(grid[i][j-1], grid[i][j])
             }
             gridArr.push(newGrid(grid))

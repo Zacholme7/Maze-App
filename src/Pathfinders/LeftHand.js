@@ -5,15 +5,13 @@ import { ROW, COL } from "../components/Grid/Grid"
 // function that is passed the current direction and returns a list of the direction 
 // priorities in accordance with the left hand rule
 function getDirectionPriority(currDirection){
-    if(currDirection == "north"){
+    if(currDirection === "north"){
         return ["west", "north", "east", "south"]
-    } else if(currDirection == "east"){
+    } else if(currDirection === "east"){
         return ["north", "east", "south", "west"]
-
-    } else if(currDirection == "south"){
+    } else if(currDirection === "south"){
         return ["east", "south", "west", "north"]
-
-    } else if(currDirection == "west"){
+    } else if(currDirection === "west"){
         return ["south", "west", "north", "east"]
     }
 }
@@ -32,7 +30,7 @@ export function leftHand(grid){
     gridArr.push(newGrid(grid)) // push new grid copy
 
     // loop while you have not reached the end
-    while(currentCell != grid[ROW-1][COL-1]){
+    while(currentCell !== grid[ROW-1][COL-1]){
 
         // get the current row and col, used for updating position
         let currentRow = currentCell.row
@@ -44,14 +42,14 @@ export function leftHand(grid){
         // have the directions in the priority you want to move
         // loop through directins and move with highest priority
         for(let i = 0; i < directions.length; i++){
-            if(directions[i] == "north"){
+            if(directions[i] === "north"){
 
                 // if there is no wall, we want to move that way
-                if(currentCell.bottom == false){
+                if(currentCell.bottom === false){
                     direction = "north" // set direction to highest priority valid direction
                     currentCell = grid[currentRow + 1][currentCol]
                     // if its the opposite of where we just went, it's a dead end
-                    if("south" == solutionStack[solutionStack.length-1].direction){
+                    if("south" === solutionStack[solutionStack.length-1].direction){
                         let removedCell = solutionStack.pop()
                         removedCell.cell.doublePath = true
                         gridArr.push(newGrid(grid))
@@ -62,11 +60,11 @@ export function leftHand(grid){
                     }
                     break;
                 }
-            } else if(directions[i] == "east"){
-                if(currentCell.left == false){
+            } else if(directions[i] === "east"){
+                if(currentCell.left === false){
                     direction = "east"
                     currentCell = grid[currentRow][currentCol - 1]
-                    if("west" == solutionStack[solutionStack.length-1].direction){
+                    if("west" === solutionStack[solutionStack.length-1].direction){
                         let removedCell = solutionStack.pop()
                         removedCell.cell.doublePath = true
                         gridArr.push(newGrid(grid))
@@ -77,11 +75,11 @@ export function leftHand(grid){
                     }
                     break;
                 }
-            } else if(directions[i] == "south"){
-                if(currentCell.top == false){
+            } else if(directions[i] === "south"){
+                if(currentCell.top === false){
                     direction = "south"
                     currentCell = grid[currentRow - 1][currentCol]
-                    if("north" == solutionStack[solutionStack.length-1].direction){
+                    if("north" === solutionStack[solutionStack.length-1].direction){
                         let removedCell = solutionStack.pop()
                         removedCell.cell.doublePath = true
                         gridArr.push(newGrid(grid))
@@ -92,11 +90,11 @@ export function leftHand(grid){
                     }
                     break;
                 }
-            } else if(directions[i] == "west"){
-                if(currentCell.right == false){
+            } else if(directions[i] === "west"){
+                if(currentCell.right === false){
                     direction = "west"
                     currentCell = grid[currentRow][currentCol + 1]
-                    if("east" == solutionStack[solutionStack.length-1].direction){
+                    if("east" === solutionStack[solutionStack.length-1].direction){
                         let removedCell = solutionStack.pop()
                         removedCell.cell.doublePath = true
                         gridArr.push(newGrid(grid))

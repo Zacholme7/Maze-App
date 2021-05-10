@@ -1,4 +1,3 @@
-import { ROW, COL } from '../components/Grid/Grid.js';
 import {removeWall, newGrid} from './utility.js'
 
 /* Implements the sidewinder maze generation algorithm */
@@ -7,7 +6,7 @@ function carveCondition(currCell){
     // 1 = carve (east)
     // 0 = dont carve
     
-    if(currCell.row == 0){
+    if(currCell.row === 0){
         return 1 // top row, we only want to carve east
     }
 
@@ -26,7 +25,7 @@ export function sideWinder(grid){
 
             
             let cond = carveCondition(grid[i][j])
-            if(cond == 1 && j < grid[0].length - 1){
+            if(cond === 1 && j < grid[0].length - 1){
                 removeWall(grid[i][j], grid[i][j+1])
             } else if( i > 0){
                 let random = run[Math.floor(Math.random() * run.length)]

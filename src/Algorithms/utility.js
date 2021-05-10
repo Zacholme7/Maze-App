@@ -5,16 +5,16 @@ export function removeWall(cell1, cell2){
     let y = cell1.row - cell2.row;
     let x = cell1.col - cell2.col;
 
-    if(x == 1){
+    if(x === 1){
         cell1.left = false;
         cell2.right = false;
-    } else if(x == -1){
+    } else if(x === -1){
         cell1.right = false;
         cell2.left = false;
-    } else if(y == 1){
+    } else if(y === 1){
         cell1.top = false;
         cell2.bottom = false;
-    } else if(y == -1){
+    } else if(y === -1){
         cell1.bottom = false;
         cell2.top = false;
     }
@@ -33,7 +33,7 @@ export function getUnvisited(grid, cell){
     ]
     let validNeighbors = []
     for(let i = 0; i<tempNeighbor.length; i++){
-        if(tempNeighbor[i] != -1 & !tempNeighbor[i].visited){
+        if(tempNeighbor[i] !== -1 & !tempNeighbor[i].visited){
             validNeighbors.push(tempNeighbor[i])
         }
 
@@ -54,7 +54,7 @@ export function getVisited(grid, cell){
     ]
     let validNeighbors = []
     for(let i = 0; i<tempNeighbor.length; i++){
-        if(tempNeighbor[i] != -1 & tempNeighbor[i].visited){
+        if(tempNeighbor[i] !== -1 & tempNeighbor[i].visited){
             validNeighbors.push(tempNeighbor[i])
         }
 
@@ -84,7 +84,7 @@ export function getNeighbors(grid, cell){
     ]
     let validNeighbors = []
     for(let i = 0; i<tempNeighbor.length; i++){
-        if(tempNeighbor[i] != -1 & !tempNeighbor[i].visited){
+        if(tempNeighbor[i] !== -1 & !tempNeighbor[i].visited){
             validNeighbors.push(tempNeighbor[i])
         }
 
@@ -105,7 +105,7 @@ export function getRandomNeighbor(grid, cell){
     ]
     let validNeighbors = []
     for(let i = 0; i<tempNeighbor.length; i++){
-        if(tempNeighbor[i] != -1){
+        if(tempNeighbor[i] !== -1){
             validNeighbors.push(tempNeighbor[i])
         }
 

@@ -27,7 +27,7 @@ export function recursiveBack(grid){
             curr = stack.pop();
             curr.path = false;
             curr.current = true;
-            if(stack.length == 0){
+            if(stack.length === 0){
                 curr.current = false;
             }
         }

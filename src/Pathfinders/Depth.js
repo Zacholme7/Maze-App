@@ -30,7 +30,7 @@ export function depthSearch(grid){
     while(notExplored.length > 0){
         let currNeighbors = getFalseWallNeighbor(grid, current)
         for(let i = 0; i < currNeighbors.length; i++){
-            if(currNeighbors[i] != undefined){
+            if(currNeighbors[i] !== undefined){
                 currNeighbors[i].path = true
                 currNeighbors[i].visited = true
                 currNeighbors[i].doublePath = true;
@@ -47,7 +47,7 @@ export function depthSearch(grid){
     let backtrackPos = getPos(grid[ROW-1][COL-1])
     gridCells[backtrackPos].path = false
     gridArr.push(newGrid(grid)) 
-    while(backtrackPos != 0){
+    while(backtrackPos !== 0){
         let currBacktrack = pathObj[backtrackPos]
         gridCells[currBacktrack].path = false
         backtrackPos = currBacktrack

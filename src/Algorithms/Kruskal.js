@@ -33,7 +33,7 @@ function getDirCell(edge, grid){
     let col = edge["x"]
     let dir = edge["dir"]
 
-    if(dir == "south"){
+    if(dir === "south"){
         return grid[row+1][col]
     } else {
         return grid[row][col+1]
@@ -73,7 +73,7 @@ export function kruskals(grid){
         let neighbor = getDirCell(edge, grid)
     
         // if the two cells are not in the same set
-        if(gridCellSet[getPos(grid[edge.y][edge.x])] != gridCellSet[getPos(neighbor)]){
+        if(gridCellSet[getPos(grid[edge.y][edge.x])] !== gridCellSet[getPos(neighbor)]){
             removeWall(grid[edge.y][edge.x], neighbor) // removes the wall between the sets
 
             // combine the two sets and delete the unneeded one
@@ -85,7 +85,7 @@ export function kruskals(grid){
             // adjust map of cells to sets to adjust for new union
             let compareVal = gridCellSet[getPos(grid[edge.y][edge.x])]
             for(let i = 0; i < gridCellSet.length; i++){
-                if(gridCellSet[i] == compareVal){
+                if(gridCellSet[i] === compareVal){
                     gridCellSet[i] = gridCellSet[getPos(neighbor)]
                 }
             }

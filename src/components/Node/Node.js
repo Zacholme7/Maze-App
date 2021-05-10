@@ -1,10 +1,10 @@
 import React from 'react';
 import './Node.css'
-import {ROW, COL} from '../Grid/Grid'
+import {COL} from '../Grid/Grid'
 
 class Node extends React.Component{
     render(){
-        const {starting, ending, col, row, visited,path, current, top, bottom, left, right, doublePath} = this.props;
+        const {starting, ending, col, row, path, current,bottom, right, doublePath} = this.props;
         const start = starting ? "starting" : "";
         const end = ending ? "ending" : "";
         const bottomWall = bottom ? "bottom": "bottomFalse";

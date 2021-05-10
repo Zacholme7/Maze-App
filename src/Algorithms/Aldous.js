@@ -11,7 +11,7 @@ export function aldousBroder(grid){
 
     while(remaining > 0){
         let neighbor = getRandomNeighbor(grid, currCell)
-        if(neighbor.visited == false){
+        if(neighbor.visited === false){
             neighbor.visited = true
             remaining -= 1
             removeWall(currCell, neighbor)

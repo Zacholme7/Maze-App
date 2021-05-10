@@ -43,7 +43,7 @@ export function breadthSearch(grid){
     let backtrackPos = getPos(grid[ROW-1][COL-1])
     gridCells[backtrackPos].path = false
     gridArr.push(newGrid(grid)) 
-    while(backtrackPos != 0){
+    while(backtrackPos !== 0){
         let currBacktrack = pathObj[backtrackPos]
         gridCells[currBacktrack].path = false
         backtrackPos = currBacktrack
