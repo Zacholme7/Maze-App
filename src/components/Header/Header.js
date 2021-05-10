@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
 import { lefthand, righthand, deadend, depth, breadth } from '../../actions/solvers';
-import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals, aldous } from '../../actions/generators';
+import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals, aldous, tree } from '../../actions/generators';
 
 
 
@@ -31,6 +31,12 @@ const Header = () => {
                     onClick={() => {dispatch(prim()); setmazeActive(2)}}
                     >
                         Prims
+                    </button>
+
+                    <button className={`btn-top ${mazeActive == 2 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(tree()); setmazeActive(2)}}
+                    >
+                        Growing Tree
                     </button>
 
                     <button className={`btn-top ${mazeActive == 2 ? `currentBtn`: ``}`}

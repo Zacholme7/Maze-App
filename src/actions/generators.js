@@ -45,3 +45,9 @@ export const aldous = () => {
         type: "AldousBroder"
     };
 };
+
+export const tree = () => {
+    return{
+        type: "GrowingTree"
+    };
+};
