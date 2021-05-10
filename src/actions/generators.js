@@ -33,3 +33,9 @@ export const wilsons = () => {
         type: "Wilsons"
     };
 };
+
+export const kruskals = () => {
+    return{
+        type: "Kruskals"
+    };
+};

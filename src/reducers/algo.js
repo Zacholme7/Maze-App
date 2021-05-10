@@ -4,6 +4,7 @@ import { binaryTree } from '../Algorithms/BinaryTree';
 import { huntAndKill } from '../Algorithms/huntAndKill';
 import { sideWinder } from '../Algorithms/Sidewinder';
 import { wilsons } from '../Algorithms/Wilsons';
+import { kruskals } from '../Algorithms/Kruskal';
 
 
 const algoReducer = (state = recursiveBack, action) => {
@@ -20,6 +21,8 @@ const algoReducer = (state = recursiveBack, action) => {
             return sideWinder;
         case "Wilsons":
             return wilsons
+        case "Kruskals":
+            return kruskals
         default: 
             return state;
     }

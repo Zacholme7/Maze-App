@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
 import { lefthand, righthand, deadend, depth, breadth } from '../../actions/solvers';
-import { wilsons, sidewinder, hunt, binary, prim, recursive } from '../../actions/generators';
+import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals } from '../../actions/generators';
 
 
 
@@ -49,6 +49,12 @@ const Header = () => {
                     onClick={() => {dispatch(wilsons()); setmazeActive(5)}}
                     >
                         Wilsons
+
+                    </button>
+                    <button className={`btn-top ${mazeActive == 5 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(kruskals()); setmazeActive(6)}}
+                    >
+                        Kruskals
 
                     </button>
 

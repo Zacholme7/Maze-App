@@ -1,5 +1,5 @@
 import { ROW, COL } from '../components/Grid/Grid.js';
-import { getNeighbors, newGrid, removeWall } from './utility.js';
+import { getNeighbors, newGrid, removeWall, shuffleArray } from './utility.js';
 
 // gets the direction of the second cell in relation to the first cell
 function getDirection(firstCell, secondCell){
@@ -43,14 +43,6 @@ function removeWallDirection(cell, direction, grid){
     }
 }
 
-// initial shuffle of array for random remove
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array
-}
 
 // maps 2D grid to 1D array
 function getPos(cell){

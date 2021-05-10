@@ -23,6 +23,7 @@ function randomWalk(grid, gridArr, currCell){
 }
 
 
+
 function walk(grid, cell, gridArr){
     while(true){
         let nextCell = getNeighbors(grid, cell)
