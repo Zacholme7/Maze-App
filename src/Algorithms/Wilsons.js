@@ -26,19 +26,15 @@ function removeWallDirection(cell, direction, grid){
 
     if(direction === 0){
         // north 
-        console.log("remove north")
         removeWall(cell, grid[cell.row-1][cell.col])
     } else if(direction === 1){
         // east
-        console.log("remove east")
         removeWall(cell, grid[cell.row][cell.col+1])
     } else if(direction === 2){
         // south
-        console.log("remove south")
         removeWall(cell, grid[cell.row+1][cell.col])
     } else if(direction === 3){
         // west
-        console.log("remove west")
         removeWall(cell, grid[cell.row][cell.col-1])
     }
 }
