@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Grid.css'
 import { newGrid } from '../../Algorithms/utility';
 
-export const ROW = 3;
-export const COL = 5;
+export const ROW = 23;
+export const COL = 45;
 
 const getInitialGrid = () =>{
     const grid = [];
