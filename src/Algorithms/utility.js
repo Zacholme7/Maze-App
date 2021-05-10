@@ -71,7 +71,7 @@ export function validate(grid, rowIdx, colIdx){
     }
 }
 
-/* returns one neighbor of the passed cell */
+/* returns one unvisited neighbor of the passed cell */
 export function getNeighbors(grid, cell){
     let row = cell.row;
     let col = cell.col;
@@ -91,6 +91,28 @@ export function getNeighbors(grid, cell){
     }
     return validNeighbors[Math.floor(Math.random() * validNeighbors.length)];
 }
+
+/* returns one neighbor of the passed cell */
+export function getRandomNeighbor(grid, cell){
+    let row = cell.row;
+    let col = cell.col;
+
+    let tempNeighbor = [
+        validate(grid, row+1, col),
+        validate(grid, row-1, col),
+        validate(grid, row, col+1),
+        validate(grid, row, col-1),
+    ]
+    let validNeighbors = []
+    for(let i = 0; i<tempNeighbor.length; i++){
+        if(tempNeighbor[i] != -1){
+            validNeighbors.push(tempNeighbor[i])
+        }
+
+    }
+    return validNeighbors[Math.floor(Math.random() * validNeighbors.length)];
+}
+
 
 /* makes a deep copy of the grid */
 export function newGrid(grid){

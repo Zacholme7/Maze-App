@@ -5,6 +5,8 @@ import { huntAndKill } from '../Algorithms/huntAndKill';
 import { sideWinder } from '../Algorithms/Sidewinder';
 import { wilsons } from '../Algorithms/Wilsons';
 import { kruskals } from '../Algorithms/Kruskal';
+import { aldousBroder } from '../Algorithms/Aldous';
+
 
 
 const algoReducer = (state = recursiveBack, action) => {
@@ -23,6 +25,8 @@ const algoReducer = (state = recursiveBack, action) => {
             return wilsons
         case "Kruskals":
             return kruskals
+        case "AldousBroder":
+            return aldousBroder
         default: 
             return state;
     }

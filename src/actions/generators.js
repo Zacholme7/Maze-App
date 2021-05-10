@@ -39,3 +39,9 @@ export const kruskals = () => {
         type: "Kruskals"
     };
 };
+
+export const aldous = () => {
+    return{
+        type: "AldousBroder"
+    };
+};
