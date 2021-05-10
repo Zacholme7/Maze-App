@@ -51,3 +51,9 @@ export const tree = () => {
         type: "GrowingTree"
     };
 };
+
+export const ellers = () => {
+    return{
+        type: "Ellers"
+    };
+};

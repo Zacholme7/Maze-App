@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
 import { lefthand, righthand, deadend, depth, breadth } from '../../actions/solvers';
-import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals, aldous, tree } from '../../actions/generators';
+import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals, aldous, tree, ellers} from '../../actions/generators';
 
 
 
@@ -33,41 +33,53 @@ const Header = () => {
                         Prims
                     </button>
 
-                    <button className={`btn-top ${mazeActive == 2 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(tree()); setmazeActive(2)}}
+                    <button className={`btn-top ${mazeActive == 3 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(tree()); setmazeActive(3)}}
                     >
                         Growing Tree
                     </button>
 
-                    <button className={`btn-top ${mazeActive == 2 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(aldous()); setmazeActive(2)}}
+                    <button className={`btn-top ${mazeActive == 4 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(kruskals()); setmazeActive(4)}}
                     >
-                        Aldous-Broder
+                        Kruskals
+
                     </button>
+
+                   
                     <div className="title">
                         Maze Generator
                     </div>
-                    <button className={`btn-top ${mazeActive == 3 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(binary()); setmazeActive(3)}}
+
+
+                    <button className={`btn-top ${mazeActive == 5 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(binary()); setmazeActive(5)}}
                     >
                         Binary
                     </button>
-                    <button className={`btn-top ${mazeActive == 4 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(hunt()); setmazeActive(4)}}
+                    <button className={`btn-top ${mazeActive == 6 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(ellers()); setmazeActive(6)}}
+                    >
+                        Ellers
+                    </button>
+
+                    <button className={`btn-top ${mazeActive == 7 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(hunt()); setmazeActive(7)}}
                     >
                         Hunt And Kill
                     </button>
-                    <button className={`btn-top ${mazeActive == 5 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(wilsons()); setmazeActive(5)}}
+                    <button className={`btn-top ${mazeActive == 8 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(wilsons()); setmazeActive(8)}}
                     >
                         Wilsons
 
                     </button>
-                    <button className={`btn-top ${mazeActive == 5 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(kruskals()); setmazeActive(6)}}
-                    >
-                        Kruskals
 
+
+                    <button className={`btn-top ${mazeActive == 9 ? `currentBtn`: ``}`}
+                    onClick={() => {dispatch(aldous()); setmazeActive(9)}}
+                    >
+                        Aldous-Broder
                     </button>
 
                     

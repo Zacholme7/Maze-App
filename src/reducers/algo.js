@@ -7,6 +7,7 @@ import { wilsons } from '../Algorithms/Wilsons';
 import { kruskals } from '../Algorithms/Kruskal';
 import { aldousBroder } from '../Algorithms/Aldous';
 import { growingTree } from '../Algorithms/Tree';
+import { ellers } from '../Algorithms/Ellers';
 
 
 
@@ -30,6 +31,8 @@ const algoReducer = (state = recursiveBack, action) => {
             return aldousBroder
         case "GrowingTree":
             return growingTree
+        case "Ellers":
+            return ellers
         default: 
             return state;
     }
