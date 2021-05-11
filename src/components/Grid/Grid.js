@@ -60,7 +60,7 @@ const Grid = () =>  {
             solveConditioner = 1
             let maze = algo(grid);
             for(let i = 0; i < maze.length; i++){
-                await sleep(1);
+                await sleep(5);
                 setGrid(maze[i])
             }
             solveConditioner = 0;
