@@ -49,5 +49,6 @@ export function breadthSearch(grid){
         backtrackPos = currBacktrack
         gridArr.push(newGrid(grid)) 
     }
+    
     return gridArr;
 }

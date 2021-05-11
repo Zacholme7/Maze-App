@@ -2,8 +2,8 @@
     height: 80vh;
     width: 100%;
     box-sizing: border-box;
-    border-top: 10px solid black;
-    border-left: 10px solid black;
+    border-top: 3px solid rgb(12, 53, 71);
+    border-left: 3px solid rgb(12, 53, 71);
 }
 
 
@@ -28,7 +28,7 @@
 
 .control-btn {
     color: white;
-    font-size: 15px;
+    font-size: 1vw;
 
     text-align: center;
     background-color:#4b4b4b;
@@ -68,22 +68,4 @@
     opacity: 0
 }
 
-.animation{
-    animation-name: hidden;
-    animation-duration: 1.2s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-}
-
-@keyframes hidden{
-    from{
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 

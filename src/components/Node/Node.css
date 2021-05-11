@@ -2,12 +2,13 @@
   box-sizing: border-box;
 }
 
+
 .bottom{
-  border-bottom: 10px solid black;
+  border-bottom: 3px solid rgb(12, 53, 71);
 }
 
 .right{
-  border-right: 10px solid black;
+  border-right: 3px solid rgb(12, 53, 71);
 }
 
 .bottomFalse{
@@ -26,8 +27,8 @@
 
 .noWallRel:after{
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 3px;
+  height: 3px;
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -47,6 +48,10 @@
 .doublePath{
   background-color: rgb(55, 54, 54);
 }
+
+
+
+
 
 
 

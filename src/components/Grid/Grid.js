@@ -33,7 +33,7 @@ const createNode = (col, row) => {
         right: true, // right wall
         left: true, // left wall
         doublePath: false, // double path when you backtrack in pathfinding
-        inMaze: false // in maze for wilsons
+        inMaze: false, // in maze for wilsons
     }
 }
 

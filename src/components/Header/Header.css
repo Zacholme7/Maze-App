@@ -13,7 +13,7 @@
     justify-content: space-evenly;
     color: white;
     text-align: center;
-    font-size: 17px;
+    font-size: 1vw;
 }
 .bottom-header{
     width: 100%;
@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    font-size: 17px;
+    font-size: 1vw;
     text-align: center;
 }
 
