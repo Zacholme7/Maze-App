@@ -4,8 +4,8 @@ import {useSelector} from 'react-redux';
 import './Grid.css'
 import { newGrid } from '../../Algorithms/utility';
 
-export const ROW = 17;
-export const COL = 45;
+export const ROW = 15;
+export const COL = 37;
 
 const getInitialGrid = () =>{
     const grid = [];
@@ -60,7 +60,7 @@ const Grid = () =>  {
             solveConditioner = 1
             let maze = algo(grid);
             for(let i = 0; i < maze.length; i++){
-                await sleep(.1);
+                await sleep(1);
                 setGrid(maze[i])
             }
             solveConditioner = 0;

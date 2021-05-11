@@ -27,3 +27,9 @@ export const depth = () => {
         type: "DepthSolver"
     };
 };
+
+export const recursivesolver = () => {
+    return{
+        type: "RecursiveSolver"
+    };
+};

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Header.css'
 import {useDispatch} from 'react-redux'
-import { lefthand, righthand, deadend, depth, breadth } from '../../actions/solvers';
+import { lefthand, righthand, deadend, depth, breadth, recursivesolver } from '../../actions/solvers';
 import { wilsons, sidewinder, hunt, binary, prim, recursive, kruskals, aldous, tree, ellers} from '../../actions/generators';
 
 
@@ -91,19 +91,19 @@ const Header = () => {
                 <button className={`btn-top ${pathActive === 0 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(lefthand()); setpathActive(0)}}
                     >
-                        Left Hand
+                        Left Hand Search
                     </button>
 
                 <button className={`btn-top ${pathActive === 1 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(breadth()); setpathActive(1)}}
                     >
-                        Breath First
+                        Breath First Search
                     </button>
 
                     <button className={`btn-top ${pathActive === 2 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(righthand()); setpathActive(2)}}
                     >
-                        Right Hand
+                        Right Hand Search
                     </button>
 
                     <div className="title">
@@ -117,15 +117,15 @@ const Header = () => {
                     </button>
 
                     <button className={`btn-top ${pathActive === 4 ? `currentBtn`: ``}`}
-                    onClick={() => {dispatch(deadend()); setpathActive(4)}}
+                    onClick={() => {dispatch(recursivesolver()); setpathActive(4)}}
                     >
-                        MAKE
+                        Recursive Solver
                     </button>
 
                     <button className={`btn-top ${pathActive === 5 ? `currentBtn`: ``}`}
                     onClick={() => {dispatch(depth()); setpathActive(5)}}
                     >
-                        Depth First
+                        Depth First Search
                     </button>
                 </div>
             </div>

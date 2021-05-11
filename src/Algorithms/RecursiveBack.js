@@ -8,7 +8,7 @@ export function recursiveBack(grid){
     let curr = grid[Math.floor(ROW/2)][Math.floor(COL/2)];
     curr.visited = true;
     curr.path = true;
-    stack.push(curr);
+    stack.push(curr); 
     curr.current = true;
     gridArr.push(newGrid(grid));
     while(stack.length > 0){
