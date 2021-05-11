@@ -2,8 +2,8 @@
     height: 80vh;
     width: 100%;
     box-sizing: border-box;
-    border-top: 3px solid rgb(12, 53, 71);
-    border-left: 3px solid rgb(12, 53, 71);
+    border-top: 3px solid black;
+    border-left: 3px solid black;
 }
 
 
