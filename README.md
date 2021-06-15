@@ -1,5 +1,5 @@
 # Maze Generator/Pathfinder
-URL: [Everything Mazes](everythingmazes.netlify.app)
+URL: [Everything Mazes](https://everythingmazes.netlify.app/)
 
 <img width="1792" alt="Screen Shot 2021-06-15 at 5 11 31 PM" src="https://user-images.githubusercontent.com/79027434/122136450-24f49100-ce08-11eb-84f7-4571d033389e.png">
 
