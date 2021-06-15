@@ -22,4 +22,4 @@ export function aldousBroder(grid){
         currCell = neighbor
     }
     return gridArr
-}
+} 

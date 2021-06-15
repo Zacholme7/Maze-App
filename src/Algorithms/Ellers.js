@@ -107,7 +107,7 @@ export function ellers(grid){
                         }
                     }
                     gridArr.push(newGrid(grid))
-                }
+                } 
 
                 // deals with the last cell in the row
                 if(col+1 == COL-1){

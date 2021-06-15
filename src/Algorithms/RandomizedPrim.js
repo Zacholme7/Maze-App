@@ -33,7 +33,7 @@ export function randomizedPrims(grid){
         for(let i = 0; i < borderAdded.length; i++){
             borderAdded[i].path = true;
         }
-
+ 
         borderArr = borderArr.concat(borderAdded)
         borderArr = [...new Set(borderArr)]
         gridArr.push(newGrid(grid))

@@ -38,4 +38,4 @@ export function sideWinder(grid){
     }
     gridArr.push(newGrid(grid))
     return gridArr
-}
+}  

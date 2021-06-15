@@ -19,6 +19,7 @@ const getInitialGrid = () =>{
     return grid;
 }
 
+
 const createNode = (col, row) => {
     return {
         starting: false, // the starting node

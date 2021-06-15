@@ -20,7 +20,7 @@ function getDirection(firstCell, secondCell){
         return 1
     }
 }
-
+ 
 // removes the wall of the cell and the cell in the passed direction
 function removeWallDirection(cell, direction, grid){
 

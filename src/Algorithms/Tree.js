@@ -17,7 +17,7 @@ export function growingTree(grid){
 
 
     // keep looping while there are still cells left in the list
-    while(cellList.length > 0){
+    while(cellList.length > 0){ 
         let currCellNeighbor = getNeighbors(grid, currCell) // get next unvisited neighbor
 
         // want to alternate between removing from the end and from the middle

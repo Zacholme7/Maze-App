@@ -26,7 +26,7 @@ export const depth = () => {
     return{
         type: "DepthSolver"
     };
-};
+}; 
 
 export const recursivesolver = () => {
     return{

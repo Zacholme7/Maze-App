@@ -29,7 +29,7 @@ export function recursiveBack(grid){
             curr.current = true;
             if(stack.length === 0){
                 curr.current = false;
-            }
+            } 
         }
         gridArr.push(newGrid(grid));
     }

@@ -39,4 +39,4 @@ export function binaryTree(grid){
     }
     gridArr.push(newGrid(grid))
     return gridArr
-}
+} 

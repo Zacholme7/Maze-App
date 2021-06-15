@@ -55,4 +55,4 @@ export function huntAndKill(grid){
     }
     gridArr.push(newGrid(grid))
     return gridArr
-}
+} 

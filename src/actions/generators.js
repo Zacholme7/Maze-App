@@ -26,7 +26,7 @@ export const sidewinder = () => {
     return{
         type: "Sidewinder"
     };
-};
+}; 
 
 export const wilsons = () => {
     return{

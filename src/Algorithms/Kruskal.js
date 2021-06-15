@@ -92,5 +92,5 @@ export function kruskals(grid){
             gridArr.push(newGrid(grid))
         }
     } 
-    return gridArr
+    return gridArr 
 }
