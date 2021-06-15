@@ -1,19 +1,20 @@
 # Maze Generator/Pathfinder
-[Everything Mazes](everythingmazes.netlify.app)
+URL: [Everything Mazes](everythingmazes.netlify.app)
+![Image](https://imgur.com/a/Q99rdKm)
 
 
-
-## How to use
-__First Row__
+# How to use
+##__First Row__
 
 The first row consists of the 10 maze generation algorithms avaliable for use
 * Just click on any algorithm to select it. Selected algorithms appear light grey
 
-__Second Row__
+##__Second Row__
+
 The second row consists of the 6 pathfinding algorithms avaliable for use
 * Just click on any algorithm to select it. Selected algorithms appear light grey
 
-__Third Row__
+##__Third Row__
 * **Generate Maze**: Will visually generate the maze
 * **Generate Maze Instantly**: Will instantly generate the maze without visualization
 * **Reset to Initial Grid**: Will reset the grid to its initial unsolved/pathfound state
